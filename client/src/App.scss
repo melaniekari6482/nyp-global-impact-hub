@@ -1,0 +1,96 @@
+// 1. Variables (Colores basados en el logo de Enyp)
+$primary: #e94e89; //Rosa del logo
+$secundary: #f39237;  //Naranja del logo
+$dark: #3333;
+$white: #ffffff;
+
+.App {
+  background-color: $dark;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  .video-container {
+   position: fixed; 
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+   overflow: hidden;
+
+   .video-bg{
+    width: 100;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+   }
+  }
+  .hero {
+    height: 80vh;
+    display:  flex;
+    align-items:  center;
+    justify-content: center;
+    text-align: center;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s ease-out; // El movimiento suave
+
+// Cuando React añade esta clase, se mueve
+&.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+  .hero-content {
+    font-size: 4rem;
+    color: $white;
+    margin-bottom: 10px;
+
+    span {
+      color: $primary;
+      background: linear-gradient(to right, $primary, $secundary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+  p {
+    font-size: 1.5rem;
+    color: #cccccc;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+    .descubre {
+     font-size: 1.2rem; //tamaño de la letra mediano
+     color: #cccccc;
+     margin-bottom: 2rem; //espacio debajo del boton para q no este pegado
+     opacity: 1; //te aseguras que se vea
+     background: none;  //quitas cualquier fondo
+     border: none; //sin bordes
+     padding: 0;
+     display: block;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+    }
+  }
+
+
+  .cta-button {
+    margin-top: 40px;
+    padding: 15px 35px;
+    background: linear-gradient(45deg, $primary, $secundary);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;}
+
+// Movimiento al pasar el ratón (Pseudo-clase)
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba($primary, 0.4);
+      }
+     }
+    }
+
+
+
+  
