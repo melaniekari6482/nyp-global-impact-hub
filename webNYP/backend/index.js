@@ -1,51 +1,141 @@
-import express from "express";
-import cors from "cors";
-import pool from "./db.js";
+const traducciones = {
+  es: {
+    /* ===== MENU ===== */
+    inicio: "Inicio",
+    servicios: "Servicios",
+    proyectos: "Proyectos",
+    contacto: "Contacto",
+    consultoria: "Consultoría",
+    asistencia: "Asistencia Técnica",
+    fondos: "Fondos Europeos",
+    innovacion: "Innovación",
+    acceso: "Acceso Cliente",
 
-/* ✅ AQUÍ SE CREA APP (ESTO FALTABA) */
-const app = express();
+    /* ===== HERO ===== */
+    heroTexto: "Innovación, financiación e impacto",
+    consultoriaEstrategica: "Consultoría Estratégica",
+    empezarProyecto: "Empezar Proyecto",
 
-/* MIDDLEWARES */
-app.use(cors());
-app.use(express.json());
+    /* ===== BOTONES ===== */
+    masInfo: "Más información",
 
-/* RUTA DE PRUEBA */
-app.get("/api/test", (req, res) => {
-  res.json({ mensaje: "Backend funcionando ✅" });
-});
+    /* ===== ¿QUÉ HACEMOS? ===== */
+    queHacemos: "¿Qué hacemos?",
 
-/* LOGIN */
-app.post("/api/login", async (req, res) => {
-  const { email, password } = req.body;
+    consultoriaTitulo: "Consultoría",
+    consultoriaTipo: "estratégica",
+    consultoriaAmbitoStrong: "Empresarial",
+    consultoriaAmbito: "y de gestión",
+    consultoriaLi1: "Mejora de la competitividad y la eficiencia organizativa",
+    consultoriaLi2: "Optimización de procesos y estructuras",
+    consultoriaLi3: "Transformación digital y la innovación",
+    consultoriaLi4: "Fortalecimiento institucional",
 
-  console.log("LOGIN RECIBIDO");
-  console.log("EMAIL:", email);
-  console.log("PASSWORD:", password);
+    asistenciaTitulo: "Asistencia",
+    asistenciaTipo: "técnica",
+    asistenciaAmbitoStrong: "Administración",
+    asistenciaAmbito: "Pública",
+    asistenciaLi1: "Elaboración de estudios y planes estratégicos",
+    asistenciaLi2: "Gestión y seguimiento de proyectos públicos",
+    asistenciaLi3: "Evaluación de actuaciones",
+    asistenciaLi4: "Gestión de programas públicos",
 
-  try {
-    const result = await pool.query(
-      "SELECT * FROM usuarios WHERE email = $1 AND password = $2",
-      [email, password]
-    );
+    /* ===== PROGRAMAS FORMATIVOS ===== */
+    formacion: "Programas formativos",
+    emprendimiento: "Emprendimiento y gestión empresarial",
+    textoEmprendimiento:
+      "Formación orientada al desarrollo de proyectos empresariales.",
+    innovacionFormacion: "Innovación y digitalización",
+    innovacionFormacionTexto:
+      "Impulso a la transformación digital de organizaciones.",
+    politicasPublicas: "Políticas públicas y desarrollo territorial",
+    politicasPublicasTexto:
+      "Formación especializada en administración pública.",
 
-    console.log("RESULTADO QUERY:", result.rows);
+    /* ===== CÓMO TRABAJAMOS ===== */
+    comoTrabajamos: "Cómo trabajamos",
+    comoTrabajamosTexto:
+      "Acompañamos a empresas y entidades públicas mediante soluciones estratégicas, innovación y transformación digital.",
+    workBox1: "Diagnóstico estratégico",
+    workBox2: "Planificación y financiación",
+    workBox3: "Implementación de proyectos",
+    workBox4: "Seguimiento y evaluación",
 
-    if (result.rows.length === 0) {
-      return res.status(401).json({ mensaje: "Credenciales incorrectas" });
-    }
+    /* ===== LOGIN ===== */
+    loginTitulo: "Acceso Clientes",
+    email: "Correo electrónico",
+    password: "Contraseña",
+    entrar: "Entrar",
+  },
 
-    res.json({
-      mensaje: "Login correcto",
-      usuario: result.rows[0],
-    });
-  } catch (error) {
-    console.error("🔥 ERROR EN LOGIN 🔥");
-    console.error(error);
-    res.status(500).json({ mensaje: "Error interno del servidor" });
-  }
-});
+  en: {
+    /* ===== MENU ===== */
+    inicio: "Home",
+    servicios: "Services",
+    proyectos: "Projects",
+    contacto: "Contact",
+    consultoria: "Consulting",
+    asistencia: "Technical Assistance",
+    fondos: "European Funds",
+    innovacion: "Innovation",
+    acceso: "Client Access",
 
-/* ARRANCAR SERVIDOR */
-app.listen(3001, () => {
-  console.log("Backend escuchando en http://localhost:3001");
-});
+    /* ===== HERO ===== */
+    heroTexto: "Innovation, funding and impact",
+    consultoriaEstrategica: "Strategic Consulting",
+    empezarProyecto: "Start project",
+
+    /* ===== BOTONES ===== */
+    masInfo: "More information",
+
+    /* ===== WHAT DO WE DO ===== */
+    queHacemos: "What do we do?",
+
+    consultoriaTitulo: "Consulting",
+    consultoriaTipo: "strategy",
+    consultoriaAmbitoStrong: "Business",
+    consultoriaAmbito: "and management",
+    consultoriaLi1: "Improving competitiveness and organizational efficiency",
+    consultoriaLi2: "Process and structure optimization",
+    consultoriaLi3: "Digital transformation and innovation",
+    consultoriaLi4: "Institutional strengthening",
+
+    asistenciaTitulo: "Technical",
+    asistenciaTipo: "assistance",
+    asistenciaAmbitoStrong: "Public",
+    asistenciaAmbito: "Administration",
+    asistenciaLi1: "Preparation of strategic studies and plans",
+    asistenciaLi2: "Management and monitoring of public projects",
+    asistenciaLi3: "Evaluation of actions",
+    asistenciaLi4: "Management of public programs",
+
+    /* ===== TRAINING PROGRAMS ===== */
+    formacion: "Training programs",
+    emprendimiento: "Entrepreneurship and business management",
+    textoEmprendimiento:
+      "Training focused on the development and management of business projects.",
+    innovacionFormacion: "Innovation and digitalization",
+    innovacionFormacionTexto:
+      "Driving the digital transformation of organizations.",
+    politicasPublicas: "Public policies and territorial development",
+    politicasPublicasTexto:
+      "Specialized training in public administration.",
+
+    /* ===== HOW WE WORK ===== */
+    comoTrabajamos: "How we work",
+    comoTrabajamosTexto:
+      "We support companies and public entities through strategic solutions, innovation and digital transformation.",
+    workBox1: "Strategic diagnosis",
+    workBox2: "Planning and funding",
+    workBox3: "Project implementation",
+    workBox4: "Monitoring and evaluation",
+
+    /* ===== LOGIN ===== */
+    loginTitulo: "Client Access",
+    email: "Email address",
+    password: "Password",
+    entrar: "Log in",
+  },
+};
+
+export default traducciones;

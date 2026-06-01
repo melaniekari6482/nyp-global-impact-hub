@@ -1,20 +1,20 @@
-import Navbar from "../components/Navbar"; 
-import "../styles/consultoria.scss";
-function Consultoria() {
-   return (
-    <>
-      <Navbar />
+import traducciones from "../assets/traducciones";
 
-      <main className="page-service">
-        <h1>Consultoría estratégica</h1>
-        <p>
-          Acompañamos a empresas y entidades en el diseño,
-          desarrollo e implementación de estrategias orientadas
-          a la mejora organizativa, la innovación y la eficiencia.
-        </p>
-      </main>
-    </>
+export default function Consultoria({ idioma }) {
+  const t = traducciones[idioma] || traducciones.es;
+
+  return (
+    <div className="page page-consultoria">
+      <h1>{t.consultoria}</h1>
+      <p>
+        <strong>{t.consultoriaAmbitoStrong}</strong> {t.consultoriaAmbito}
+      </p>
+      <ul>
+        <li>{t.consultoriaLi1}</li>
+        <li>{t.consultoriaLi2}</li>
+        <li>{t.consultoriaLi3}</li>
+        <li>{t.consultoriaLi4}</li>
+      </ul>
+    </div>
   );
 }
-
-export default Consultoria;

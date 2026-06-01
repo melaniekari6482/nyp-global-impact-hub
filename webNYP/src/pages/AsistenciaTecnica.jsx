@@ -1,21 +1,20 @@
- import Navbar from "../components/Navbar"; 
-function AsistenciaTecnica() {
+import traducciones from "../assets/traducciones";
 
+export default function AsistenciaTecnica({ idioma }) {
+  const t = traducciones[idioma] || traducciones.es;
 
-   return (
-    <>
-      <Navbar />
-
-      <main>
-        <h1>Consultoría estratégica</h1>
-        <p>
-          Acompañamos a empresas y entidades en el diseño,
-          desarrollo e implementación de estrategias orientadas
-          a la mejora organizativa, la innovación y la eficiencia.
-        </p>
-      </main>
-    </>
+  return (
+    <div className="page page-asistencia">
+      <h1>{t.asistencia}</h1>
+      <p>
+        <strong>{t.asistenciaAmbitoStrong}</strong> {t.asistenciaAmbito}
+      </p>
+      <ul>
+        <li>{t.asistenciaLi1}</li>
+        <li>{t.asistenciaLi2}</li>
+        <li>{t.asistenciaLi3}</li>
+        <li>{t.asistenciaLi4}</li>
+      </ul>
+    </div>
   );
 }
-
-export default AsistenciaTecnica;

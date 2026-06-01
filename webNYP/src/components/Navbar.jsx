@@ -1,23 +1,22 @@
-import { useState, useEffect } from 'react';
-import './Navbar.scss';
-import logoEnyp from "../assets/logo-Enyp.png";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.scss";
+import logoEnyp from "../assets/logo-Enyp.png";
 import traducciones from "../assets/traducciones";
 
 const Navbar = ({ idioma, setIdioma }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const t = traducciones[idioma] || traducciones.es;
+
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-logo">
         <Link to="/">
           <img src={logoEnyp} alt="EnypLogo" />
@@ -26,54 +25,39 @@ const Navbar = ({ idioma, setIdioma }) => {
 
       <ul className="navbar-links">
         <li className="nav-item dropdown">
-          <a href="/#que-hacemos" className="nav-link">
-            {traducciones[idioma].servicios}
-          </a>
-
+          <Link to="/#que-hacemos" className="nav-link">{t.servicios}</Link>
           <ul className="dropdown-menu">
-            <li><Link to="/consultoria">{traducciones[idioma].consultoria}</Link></li>
-            <li><Link to="/asistencia">{traducciones[idioma].asistencia}</Link></li>
-            <li><Link to="/fondos">{traducciones[idioma].fondos}</Link></li>
-            <li><Link to="/innovacion">{traducciones[idioma].innovacion}</Link></li>
+            <li><Link to="/consultoria">{t.consultoria}</Link></li>
+            <li><Link to="/asistencia">{t.asistencia}</Link></li>
+            <li><Link to="/fondos">{t.fondos}</Link></li>
+            <li><Link to="/innovacion">{t.innovacion}</Link></li>
           </ul>
-        </li><li>
-  <a href="/#proyectos" className="nav-link">
-    {traducciones[idioma].proyectos}
-  </a>
-</li>
-
-<li>
-  <a href="/#contacto" className="nav-link">
-    {traducciones[idioma].contacto}
-  </a>
-</li>
-
-
+        </li>
+        <li><Link to="/#proyectos" className="nav-link">{t.proyectos}</Link></li>
+        <li><Link to="/#contacto" className="nav-link">{t.contacto}</Link></li>
       </ul>
 
       <div className="navbar-right">
         <div className="lang-selector">
           <button
-            className={`btn-lang ${idioma === 'es' ? 'active' : ''}`}
-            onClick={() => setIdioma('es')}
+            className={`btn-lang ${idioma === "es" ? "active" : ""}`}
+            onClick={() => setIdioma("es")}
           >
             ES
           </button>
-
           <button
-            className={`btn-lang ${idioma === 'en' ? 'active' : ''}`}
-            onClick={() => setIdioma('en')}
+            className={`btn-lang ${idioma === "en" ? "active" : ""}`}
+            onClick={() => setIdioma("en")}
           >
             EN
           </button>
         </div>
 
-        <Link to="/login" className="btn-cta">
-          {traducciones[idioma].acceso}
-        </Link>
+        <Link to="/login" className="btn-cta">{t.acceso}</Link>
       </div>
     </nav>
   );
 };
 
 export default Navbar;
+
