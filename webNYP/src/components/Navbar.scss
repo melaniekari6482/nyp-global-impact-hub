@@ -1,153 +1,111 @@
-   /* --- contenedor padre ---*/
-   .navbar {
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 92px;
+  padding: 0 72px;
+  width: 100%;
+  box-sizing: border-box;
+  background: #faf8f8;
+  border-bottom: 1px solid #eee8e5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  .navbar-logo img {
+    height: 54px;
+    width: auto;
+  }
+
+  .navbar-links {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 2%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background:  rgba(0, 0, 0, 0.8); //sutil para que se vea el video detrás
-    backdrop-filter: blur(10px); //Efecto cristal moderno
-    box-sizing: border-box;
-    height: 70px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    gap: 2rem;
-    &.scrolled {
-        background: rgba(0, 0, 0, 0.95);
-        padding: 0.6rem 8%;
-    }
-   /*--- botón principal de empezar proyectos --*/
-    .btn-cta {
-        background: linear-gradient(to right, #e94e89, #f39237);
-        color: white;
-        border: none;
-        padding: 8px 18px;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        cursor: pointer;
-        text-transform: uppercase;
-        transition: all 0.3s ease;
-        letter-spacing: 1px;
-        white-space: nowrap;
+    gap: 44px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
 
-
-    &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(243, 146, 55, 0.3);
-        }
-    }
-        
-    /*--- SUBMENÚ DEBAJO DE SERVICIOS ---*/
-    .nav-item.dropdown {
-        position: relative;
-
-    &:hover .dropdown-menu /* --- es la orden que cambia de invisible a visible el submenú ---*/
-        {
-            display: block;
-
-        
-        }
-    }
-    /* --- la caja del submenú servicios ---*/
-    .dropdown-menu{
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: rgba(0, 0, 0, 0.9);
-        padding: 15px;
-        border-top: 2px solid #e94e89;
-        min-width: 200px;
-        list-style: none;
-
-        li a {
-            padding: 0.5rem 0;
-            display: block;
-            font-size: 0.85rem;
-            &:hover {
-                color: #e94e89;  //rosa del logo
-            }
-        }
-    }
-     /* --- controla el espacio de la izq del logo ---*/
-        .navbar-logo img {
-      height: 70px;
-      width: auto;
-    }
-    /* --- espacio de la derecha, idiomas y acceso ---*/
-    .navbar-right {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-left: auto;
-        padding-right: 20px;
-        .lang-selector {
-            display: flex;
-            gap: 10px;
-    /* --- botones del idioma --- */  
-         .btn-lang{
-        background: transparent;
-        color:#e94e89;
-        border: none;
-        font-weight: bold;
-        font-size: 0.8rem;
-        cursor: pointer;
-        padding: 0 5px;
-        text-transform: uppercase;
-        transition: all 0.3s ease;
-
-       &:hover { /* --- define lo que pasa cuando pasas el ratón ---*/
-        transform: scale(1.1);
-        color:#e94e89;
-               }
-            } 
-          }
-        } 
-    
-    /*--- grupo de enlaces centrales ---*/
-    .navbar-links {
-      margin: 0;
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-
-      a {
-        color: white;
-        text-decoration: none;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+    a {
+      color: #6f6a66;
+      text-decoration: none;
+      font-family: var(--font-body, Arial, sans-serif);
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      text-transform: none;
 
       &:hover {
-        color: #f39237; //el naranja corporativo
-          }
+        color: #0a0a0a;
       }
     }
-     /*--- boton de acceso clientes ---*/
-       .btn-login {
-    background: linear-gradient(to right, #e94e89, #f39237); //degradado del logo
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 4px;
-    font-size: 0.6rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    letter-spacing: 1px;
-    display: inline-block;
-    white-space: nowrap;
-     &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(243, 146, 55, 0.3);
-           }
-        }
+  }
+
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-left: 44px;
+
+    .lang-selector {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    
+  }
+
+  .btn-lang {
+    background: transparent;
+    border: none;
+    color: #6f6a66;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px;
+    letter-spacing: 0.08em;
+
+    &.active {
+      color: #0a0a0a;
+    }
+
+    &:hover {
+      color: #0a0a0a;
+    }
+  }
+
+  .btn-cta {
+    background: #f3f0ee;
+    color: #6f6a66;
+    border: 1px solid #e3dedb;
+    padding: 16px 28px;
+    text-decoration: none;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    &:hover {
+      background: #ebe7e4;
+    }
+  }
+
+  .btn-contacto {
+    background: transparent;
+    color: #0a0a0a;
+    border: 1px solid #0a0a0a;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    &:hover {
+      background: #0a0a0a;
+      color: white;
+    }
+  }
+}

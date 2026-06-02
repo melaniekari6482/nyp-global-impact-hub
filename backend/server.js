@@ -16,6 +16,24 @@ app.get("/api/prueba", (req, res) => {
   });
 });
 
+// LOGIN
+app.post("/api/login", (req, res) => {
+  const { email, password } = req.body;
+
+  if (email === "demo@demo.com" && password === "demo123") {
+    return res.json({
+      token: "token-demo",
+      usuario: {
+        email
+      }
+    });
+  }
+
+  return res.status(401).json({
+    message: "Credenciales inválidas"
+  });
+});
+
 const PORT = 3000;
 
 app.listen(PORT, () => {

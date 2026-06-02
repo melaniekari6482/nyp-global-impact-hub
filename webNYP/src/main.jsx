@@ -10,9 +10,6 @@ import { createRoot } from 'react-dom/client'
    Activa el sistema de rutas */
 import { BrowserRouter } from 'react-router-dom'
 
-/* IMPORTA EL CSS GLOBAL */
-import './index.css'
-
 /* IMPORTA LA APLICACIÓN PRINCIPAL */
 import App from './App.jsx'
 

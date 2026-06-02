@@ -1,469 +1,355 @@
-// Importa las variables globales: colores, fuentes, sombras, etc.
 @import "./styles/variables";
 
-// Hace que el padding y el borde no aumenten el tamaño total de los elementos
+:root {
+  --black: #0a0a0a;
+  --white: #faf8f8;
+  --gray-100: #f4f3f0;
+  --gray-200: #e8e6e1;
+  --gray-400: #b4a49c;
+  --gray-600: #6b6760;
+  --gray-800: #2c2b28;
+  --accent-global: #1a1a2e;
+  --accent-social: #d1a32f;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
 
-// Contenedor general opcional de la app
-.app-container {
-  background-color: $bg-main;
-  color: $text-dark;
-  font-family: $font-main;
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-body);
 }
 
-// Contenedor principal de toda la aplicación
-.App {
-  width: 100%;
-  background-color: transparent;
-  min-height: 100vh;
-  position: relative;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
-  padding-top: 90px;
-  // Contenedor del video de fondo del hero
-  .video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-  
-
-
-    // Video de fondo
-    .video-bg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.5);
-    }
-
-    // Capa oscura encima del video para mejorar la lectura del texto
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.4) 100%);
-    }
-   
-  }
-
-  // Logo principal del hero
-  .main-logo {
-    overflow: hidden;
-    width: 280px;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px;
-    filter: drop-shadow(0px, 4px, 10px rgba(0,0,0,0.3));
-  }
-
-  // OJO: este bloque está repetido y tiene un error: width debería ser 100%
-  .video-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.4);
-  }
+.portal-home {
+  background: var(--white);
+  color: var(--black);
+  padding-top: 92px;
 }
 
-// Sección principal de bienvenida
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 1s ease-out;
-
-  // Clase que añades desde React cuando carga la página
-  &.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  // Contenido centrado del hero
-  .hero-content {
-    font-size: 4rem;
-    color: $white;
-    margin-bottom: 10px;
-
-    // Texto destacado con degradado
-    span {
-      color: $primary;
-      background: linear-gradient(to right, $primary, $secundary);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    // Texto principal bajo el logo
-    p {
-      font-size: 1.5rem;
-      color: #cccccc;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    // Texto “Consultoría Estratégica”
-    .descubre {
-      font-size: 1.2rem;
-      color: #cccccc;
-      margin-bottom: 2rem;
-      opacity: 1;
-      background: none;
-      border: none;
-      padding: 0;
-      display: block;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-  }
-}
-
-// Botón principal del hero
-.cta-button {
-  margin-top: 40px;
-  padding: 14px 35px;
-  font-size: 1.1rem;
-  background: linear-gradient(to right, #e94e89, #f39237);
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-
-  // Efecto al pasar el ratón
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(243, 146, 55, 0.3);
-  }
-}
-
-// Contenido que aparece después del hero
-main {
-  position: relative;
-  z-index: 10;
-  background-color: $white;
-  width: 100%;
-  margin-top: -2px;
-
-  // Sección gris claro de Programas Formativos
-  .section-white {
-    position: relative;
-    z-index: 10;
-    background-color: #e9e9e9;
-    padding: 80px 0;
-    width: 100%;
-    color: $dark;
-
-    // Limita el ancho del contenido para que no ocupe toda la pantalla
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    // Título “Programas formativos”
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      color: $dark;
-      margin-bottom: 60px;
-      font-weight: 700;
-
-      // Línea decorativa desactivada
-      &::after {
-        content: '';
-        width: 60px;
-        height: 4px;
-        display: none;
-        margin: 15px auto 0;
-        border-radius: 2px;
-      }
-    }
-  }
-
-  // Grid donde se colocan las cards
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    justify-items: center;
-  }
-
-  // Cada tarjeta individual
-  .card {
-    width: 100%;
-    max-width: 380px;
-    background: $white;
-    border-radius: 0;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    border: none;
-
-    // Zona de la imagen dentro de la card
-    .card-image {
-      width: 100%;
-      height: 260px;
-      padding: 35px 35px 20px 35px;
-      background: $white;
-      overflow: hidden;
-      box-sizing: border-box;
-
-      // Imagen de la card
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-        transition: transform 0.5s ease;
-      }
-    }
-
-    // Contenido textual de la card
-    .card-content {
-      padding: 25px 35px 40px 35px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      text-align: center;
-
-      // Título de la card
-      h3 {
-        font-size: 1.1rem;
-        color: $dark;
-        margin-bottom: 20px;
-        line-height: 1.4;
-        min-height: 60px;
-      }
-
-      // Descripción de la card
-      p {
-        font-size: 0.9rem;
-        color: #555;
-        line-height: 1.6;
-        margin-bottom: 25px;
-        flex-grow: 1;
-      }
-
-      // Botón “SABER MÁS”
-      .btn-more {
-        align-self: center;
-        background: $primary;
-        color: $white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 6px;
-        font-weight: 700;
-        cursor: pointer;
-        font-size: 0.85rem;
-        transition: all 0.3s ease;
-
-        // Efecto hover del botón
-        &:hover {
-          background: $primary;
-          color: $white;
-        }
-      }
-    }
-
-    // Efecto hover sobre toda la card
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-
-      // Zoom suave en la imagen
-      .card-image img {
-        transform: scale(1.05);
-      }
-    }
-  }
-
-  // En tablets muestra 2 columnas
-  @media (max-width: 900px) {
-    .cards-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  // En móviles muestra 1 columna
-  @media (max-width: 600px) {
-    .cards-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  // ===== SECCIÓN que hacemos =====
-
-  .section-dark {
-  background:$bg-card;// Color de fondo blanco claro de toda la sección
-  padding: 100px 0;  // Espacio arriba y abajo (100px), 0 a los lados
-  color: $dark; // Color del texto (variable definida en tus estilos)
-
-  .container {
-    max-width: 1300px; // Limita el ancho máximo del contenido
-    margin: 0 auto;  // Centra el contenido horizontalmente
-    padding: 0 20px; // Espacio interno a izquierda y derecha
-  }
-
-  .section-title-dark {
-    font-size: 3rem; // Tamaño grande del título
-    font-weight: 700; // Texto en negrita
-    margin-bottom: 60px;// Espacio debajo del título
-    display: inline-block; // Hace que el fondo solo ocupe el ancho del texto
-    color: $dark; // Color del texto
-    padding: 5px 15px; // Espaciado interno (arriba/abajo 5px, lados 15px)
-  }
-}
-
-// ===== GRID DE TARJETAS =====
-.services-grid {
-  display: grid; // Activa CSS Grid
-  grid-template-columns: repeat(2, 1fr); // 2 columnas iguales
-  gap: 30px; // Espacio entre tarjetas
-}
-
-
-// ===== TARJETAS =====
-.service-card {
-  border: 1px solid #999; // Borde gris fino
-  padding: 45px 35px; // Espacio interno (arriba/abajo 45px, lados 35px)
-  min-height: 360px; // Altura mínima para que todas queden iguales
-  text-align: left; // Alinea todo el texto a la izquierda (clave)
-  background: transparent; // Fondo transparente
-
-  // TÍTULO PRINCIPAL
-  h3 {
-    font-size: 2rem; // Tamaño grande del título
-    margin-bottom: 15px; // Espacio debajo
-    font-weight: 400; // Peso normal
-
-    span {
-      font-weight: 800; // Parte del título en negrita (ej: "Creamos")
-    }
-  }
-
-  // SUBTÍTULO
-  .subtitle {
-    font-size: 1.2rem; // Tamaño medio
-    margin-bottom: 35px; // Espacio debajo
-
-    strong {
-      font-weight: 800; // Palabra destacada en negrita
-    }
-  }
-
-  // LISTA
-  ul {
-    list-style: none; // Quita los puntos de la lista
-    padding: 0; // Quita espacio interno por defecto
-    margin: 0 0 35px 0; // Margen solo abajo
-  }
-
-  // CADA ITEM DE LA LISTA
-  li {
-    font-size: 0.95rem; // Tamaño del texto
-    margin-bottom: 10px; // Espacio entre elementos
-    padding-left: 25px; // Espacio a la izquierda para meter la flecha
-    position: relative; // Necesario para posicionar la flecha
-
-    &::before {
-      content: "→"; // Inserta una flecha antes del texto
-      position: absolute; // Posicionamiento absoluto respecto al li
-      left: 0; // La coloca a la izquierda
-      color: #777; // Color gris de la flecha
-    }
-  }
-
-  // BOTÓN seccion que hacemos
-  .btn-service {
-    background: $primary; // Color del botón
-    color: white; // Texto blanco
-    border: none; // Sin borde
-    padding: 14px 28px; // Tamaño del botón
-    font-weight: 700; // Texto en negrita
-    cursor: pointer; // Cursor tipo botón (mano)
-
-    &:hover {// selecciona el estado "hover" (cuando pasas el ratón por encima)
-       background: darken($primary, 10%);
-    }
-  }
-}
-
-// RESPONSIVE
-@media (max-width: 900px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-}
-
-/* ===== CÓMO TRABAJAMOS ===== */
-
-.section-work {
-  background: #f5f5f5;
-  padding: 120px 80px;
-}
-
-.work-container {
-  max-width: 1200px;
+.portal-hero {
+  max-width: 1120px;
   margin: 0 auto;
+  padding: 110px 32px 80px;
 }
 
-.work-content {
-  width: 100%;
-}
-
-.work-title {
-  font-size: 4rem;
-  color: $dark;
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--gray-400);
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 30px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
 }
 
-.work-text {
-  font-size: 1.2rem;
-  color: $dark;
+.portal-hero h1 {
+  max-width: 780px;
+  font-family: var(--font-display);
+  font-size: 58px;
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin: 0 0 28px;
+}
+
+.portal-hero h1 em,
+.portal-hero h1 span {
+  font-style: italic;
+  color: var(--gray-600);
+}
+
+.portal-intro {
+  max-width: 540px;
+  color: var(--gray-600);
+  font-size: 17px;
   line-height: 1.8;
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 60px;
+  margin-bottom: 56px;
 }
 
-.work-grid {
+.portal-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 26px;
 }
 
-.work-box {
-  background: #ff4f93;
-  padding: 30px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: 0.3s ease;
+.portal-card {
+  min-height: 315px;
+  padding: 42px 38px;
+  border: 1px solid var(--gray-200);
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--black);
+  background: rgba(255, 255, 255, 0.55);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.07);
+}
+
+.global-card {
+  border-top: 3px solid var(--black);
+}
+
+.social-card {
+  border-top: 3px solid var(--accent-social);
+}
+
+.card-label {
+  font-size: 12px;
+  color: var(--gray-400);
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+
+.portal-card h2 {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 400;
+  margin: 0 0 14px;
+}
+
+.portal-card p {
+  color: var(--gray-600);
+  line-height: 1.75;
+  margin: 0 0 28px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: auto;
+}
+
+.tags span,
+.sector-tags span {
+  border: 1px solid var(--gray-200);
+  color: var(--gray-600);
+  padding: 8px 13px;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.portal-card strong {
+  margin-top: 34px;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+}
+
+.results-section {
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 54px 32px;
+  text-align: center;
+}
+
+.results-section p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--gray-400);
+  line-height: 1.8;
+}
+
+.why-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 90px 32px 70px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 44px;
+}
+
+.why-grid div {
+  border-top: 1px solid var(--gray-200);
+  padding-top: 22px;
+}
+
+.why-grid h3 {
+  font-size: 16px;
+  margin: 0 0 15px;
+}
+
+.why-grid p {
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.metrics-section {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 0;
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  overflow: hidden;
+}
+
+.metrics-track {
+  display: flex;
+  width: max-content;
+  animation: metricsMove 28s linear infinite;
+}
+
+.metrics-group {
+  display: flex;
+  gap: 90px;
+  padding-right: 90px;
+}
+
+.metric-item {
+  min-width: 260px;
+}
+
+.metric-item h2 {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+
+.metric-item p {
+  color: var(--gray-400);
+  line-height: 1.5;
+  margin: 0;
+  font-size: 18px;
+}
+
+@keyframes metricsMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+.sectors-section {
+  text-align: center;
+  padding: 70px 32px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.sector-tags {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cta-section {
+  padding: 70px 32px 86px;
+  text-align: center;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.cta-section h2 {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-style: italic;
+  line-height: 1.25;
+  font-weight: 400;
+  margin: 0 0 22px;
+}
+
+.cta-section p {
+  color: var(--gray-400);
+  margin-bottom: 34px;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.cta-actions button {
+  padding: 18px 38px;
+  border: 1px solid var(--black);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   cursor: pointer;
-  border-radius: 10px;
 }
 
-.work-box:hover {
-  background: #ff4f93;
+.cta-actions button:first-child {
+  background: var(--black);
   color: white;
-  transform: translateY(-5px);
+}
+
+.footer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 70px 32px 35px;
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+  gap: 42px;
+  color: var(--gray-400);
+}
+
+.footer h3 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--black);
+  margin: 0 0 18px;
+  font-weight: 400;
+}
+
+.footer h4 {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--gray-400);
+  margin: 0 0 20px;
+}
+
+.footer p {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.simple-page {
+  padding: 150px 72px;
+  min-height: 100vh;
+  background: var(--white);
+  color: var(--black);
+}
+
+.simple-page h1 {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  .portal-cards,
+  .why-grid,
+  .metrics-section,
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-hero h1 {
+    font-size: 42px;
+  }
+
+  .navbar {
+    padding: 0 24px;
+  }
 }

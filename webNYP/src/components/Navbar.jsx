@@ -24,17 +24,23 @@ const Navbar = ({ idioma, setIdioma }) => {
       </div>
 
       <ul className="navbar-links">
-        <li className="nav-item dropdown">
-          <Link to="/#que-hacemos" className="nav-link">{t.servicios}</Link>
-          <ul className="dropdown-menu">
-            <li><Link to="/consultoria">{t.consultoria}</Link></li>
-            <li><Link to="/asistencia">{t.asistencia}</Link></li>
-            <li><Link to="/fondos">{t.fondos}</Link></li>
-            <li><Link to="/innovacion">{t.innovacion}</Link></li>
-          </ul>
+        <li>
+          <Link to="/" className="nav-link">
+            {idioma === "en" ? "Home" : "Inicio"}
+          </Link>
         </li>
-        <li><Link to="/#proyectos" className="nav-link">{t.proyectos}</Link></li>
-        <li><Link to="/#contacto" className="nav-link">{t.contacto}</Link></li>
+
+        <li>
+          <Link to="/nyp-global" className="nav-link">
+            NYP Global
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/nyp-social-lab" className="nav-link">
+            NYP Social Lab
+          </Link>
+        </li>
       </ul>
 
       <div className="navbar-right">
@@ -53,11 +59,16 @@ const Navbar = ({ idioma, setIdioma }) => {
           </button>
         </div>
 
-        <Link to="/login" className="btn-cta">{t.acceso}</Link>
+        <Link to="/login" className="btn-cta">
+          {t.acceso}
+        </Link>
+
+        <Link to="/#contacto" className="btn-contacto">
+          {t.contacto}
+        </Link>
       </div>
     </nav>
   );
 };
 
 export default Navbar;
-
