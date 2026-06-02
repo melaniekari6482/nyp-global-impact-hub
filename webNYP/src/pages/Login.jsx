@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import traducciones from "../assets/traducciones";
-import "../styles/Login.scss"; // ya corregido
+import "../styles/login.scss"; // ya corregido
 
 export default function Login({ idioma }) {
   const t = traducciones[idioma] || traducciones.es;
@@ -27,7 +27,7 @@ export default function Login({ idioma }) {
   };
 
   // Cambia esta URL por la de tu backend
-  const API_URL = "[localhost](http://localhost:3000/api/login)"; // ejemplo
+  const API_URL = "http://localhost:3000/api/login"; // ejemplo
 
   const onSubmit = async (e) => {
     e.preventDefault();
