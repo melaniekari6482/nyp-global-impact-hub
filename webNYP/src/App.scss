@@ -294,6 +294,11 @@ body {
   color: white;
 }
 
+.footer-wrapper {
+  border-top: 1px solid var(--gray-200);
+  background: var(--white);
+}
+
 .footer {
   max-width: 1120px;
   margin: 0 auto;

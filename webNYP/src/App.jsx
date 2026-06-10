@@ -9,6 +9,47 @@ import NypSocialLab from "./pages/NypSocialLab";
 import traducciones from "./assets/traducciones";
 import "./App.scss";
 
+// ── Footer compartido ──────────────────────
+function Footer({ idioma }) {
+  const t = traducciones[idioma] || traducciones.es;
+
+  return (
+    <footer className="footer">
+      <div>
+        <h3>NYP</h3>
+        <p>NYP Global Impact Hub, SL</p>
+        <p>CIF B22849244</p>
+        <p>Europa · Latinoamérica · Oriente Medio</p>
+      </div>
+      <div>
+        <h4>{t.footerNavegacion}</h4>
+        <p>NYP Global</p>
+        <p>NYP Social Lab</p>
+        <p>Área Cliente</p>
+      </div>
+      <div>
+        <h4>{t.footerLegal}</h4>
+        <p>{t.politicaPrivacidad}</p>
+        <p>{t.avisoLegal}</p>
+        <p>{t.politicaCookies}</p>
+      </div>
+      <div>
+        <h4>{t.footerSiguenos}</h4>
+        <p>LinkedIn</p>
+        <p>Instagram</p>
+        <p>Facebook</p>
+      </div>
+      <div>
+        <h4>{t.footerContacto}</h4>
+        <p>hola@nyphub.com</p>
+        <p>soporte@nyphub.com</p>
+        <p>donacongarantia.org</p>
+      </div>
+    </footer>
+  );
+}
+
+// ── Home ──────────────────────────────────
 function Home({ idioma }) {
   const t = traducciones[idioma] || traducciones.es;
 
@@ -16,43 +57,31 @@ function Home({ idioma }) {
     <div className="portal-home">
       <section className="portal-hero">
         <p className="eyebrow">{t.homeEyebrow}</p>
-
         <h1>{t.homeTitulo}</h1>
-
         <p className="portal-intro">{t.homeDescripcion}</p>
-
         <div className="portal-cards">
           <Link to="/nyp-global" className="portal-card global-card">
             <p className="card-label">{t.globalLabel}</p>
-
             <h2>{t.nypGlobal}</h2>
-
             <p>{t.globalDescripcion}</p>
-
             <div className="tags">
               <span>Empresas</span>
               <span>Universidades</span>
               <span>AAPP</span>
               <span>Startups</span>
             </div>
-
             <strong>{t.descubrirGlobal}</strong>
           </Link>
-
           <Link to="/nyp-social-lab" className="portal-card social-card">
             <p className="card-label">{t.socialLabel}</p>
-
             <h2>{t.nypSocialLab}</h2>
-
             <p>{t.socialDescripcion}</p>
-
             <div className="tags">
               <span>ONG</span>
               <span>Fundaciones</span>
               <span>Asociaciones</span>
               <span>Entidades sociales</span>
             </div>
-
             <strong>{t.descubrirSocial}</strong>
           </Link>
         </div>
@@ -60,23 +89,19 @@ function Home({ idioma }) {
 
       <section className="why-section">
         <p className="eyebrow">{t.porqueNyp}</p>
-
         <div className="why-grid">
           <div>
             <h3>{t.transparencia}</h3>
             <p>{t.transparenciaTexto}</p>
           </div>
-
           <div>
             <h3>{t.honorarios}</h3>
             <p>{t.honorariosTexto}</p>
           </div>
-
           <div>
             <h3>{t.seguimiento}</h3>
             <p>{t.seguimientoTexto}</p>
           </div>
-
           <div>
             <h3>{t.acompanamiento}</h3>
             <p>{t.acompanamientoTexto}</p>
@@ -92,17 +117,14 @@ function Home({ idioma }) {
                 <h2>+100K€</h2>
                 <p>{t.metrica1Texto}</p>
               </div>
-
               <div className="metric-item">
                 <h2>{t.metrica2Titulo}</h2>
                 <p>{t.metrica2Texto}</p>
               </div>
-
               <div className="metric-item">
                 <h2>48h</h2>
                 <p>{t.metrica3Texto}</p>
               </div>
-
               <div className="metric-item">
                 <h2>2</h2>
                 <p>{t.metrica4Texto}</p>
@@ -114,7 +136,6 @@ function Home({ idioma }) {
 
       <section className="sectors-section">
         <p className="eyebrow">{t.sectoresTitulo}</p>
-
         <div className="sector-tags">
           <span>Energía</span>
           <span>Agroindustria</span>
@@ -132,58 +153,18 @@ function Home({ idioma }) {
       </section>
 
       <section className="cta-section" id="contacto">
-        <h2>
-          {t.ctaTitulo}
-        </h2>
-
+        <h2>{t.ctaTitulo}</h2>
         <p>{t.ctaTexto}</p>
-
         <div className="cta-actions">
           <button>{t.ctaEmpresa}</button>
           <button>{t.ctaSocial}</button>
         </div>
       </section>
-
-      <footer className="footer">
-        <div>
-          <h3>NYP</h3>
-          <p>NYP Global Impact Hub, SL</p>
-          <p>CIF B22849244</p>
-          <p>Europa · Latinoamérica · Oriente Medio</p>
-        </div>
-
-        <div>
-          <h4>{t.footerNavegacion}</h4>
-          <p>NYP Global</p>
-          <p>NYP Social Lab</p>
-          <p>Área Cliente</p>
-        </div>
-
-        <div>
-          <h4>{t.footerLegal}</h4>
-          <p>{t.politicaPrivacidad}</p>
-          <p>{t.avisoLegal}</p>
-          <p>{t.politicaCookies}</p>
-        </div>
-
-        <div>
-          <h4>{t.footerSiguenos}</h4>
-          <p>LinkedIn</p>
-          <p>Instagram</p>
-          <p>Facebook</p>
-        </div>
-
-        <div>
-          <h4>{t.footerContacto}</h4>
-          <p>hola@nyphub.com</p>
-          <p>soporte@nyphub.com</p>
-          <p>donacongarantia.org</p>
-        </div>
-      </footer>
     </div>
   );
 }
 
+// ── App ───────────────────────────────────
 export default function App() {
   const [idioma, setIdioma] = useState(
     () => localStorage.getItem("idioma") || "es"
@@ -203,6 +184,10 @@ export default function App() {
         <Route path="/nyp-social-lab" element={<NypSocialLab idioma={idioma} />} />
         <Route path="/login" element={<Login idioma={idioma} />} />
       </Routes>
+
+      <div className="footer-wrapper">
+        <Footer idioma={idioma} />
+      </div>
     </>
   );
 }

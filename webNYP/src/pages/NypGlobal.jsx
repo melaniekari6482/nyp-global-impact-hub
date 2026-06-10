@@ -6,14 +6,14 @@ export default function NypGlobal({ idioma }) {
   const [seccion, setSeccion] = useState("inicio");
 
   const menu = [
-  { id: "inicio", label: "Inicio" },
-  { id: "quehacemos", label: "Qué hacemos" },
-  { id: "servicios", label: "Servicios" },
-  { id: "ia", label: "Ingeniería de IA" },
-  { id: "experiencia", label: "Experiencia" },
-  { id: "evalua", label: "Evalúa tu proyecto" },
-  { id: "contacto", label: "Contacto" },
-];
+    { id: "inicio", label: "Inicio" },
+    { id: "quehacemos", label: "Qué hacemos" },
+    { id: "servicios", label: "Servicios" },
+    { id: "ia", label: "Ingeniería de IA" },
+    { id: "experiencia", label: "Experiencia" },
+    { id: "evalua", label: "Evalúa tu proyecto" },
+    { id: "contacto", label: "Contacto" },
+  ];
 
   return (
     <main className="nyp-area-page">
@@ -29,303 +29,492 @@ export default function NypGlobal({ idioma }) {
         ))}
       </nav>
 
+      {/* ── INICIO ── */}
       {seccion === "inicio" && (
-        <section className="area-hero">
-          <p className="eyebrow">NYP GLOBAL</p>
-          <h1>
-            Financiación, innovación y tecnología para proyectos que{" "}
-            <em>importan.</em>
-          </h1>
-          <p>
-            Trabajamos con empresas, universidades, administraciones y
-            asociaciones empresariales para convertir ideas en proyectos
-            financiables de alto impacto.
-          </p>
+        <>
+          <section className="area-hero">
+            <p className="eyebrow">NYP GLOBAL</p>
+            <h1>
+              Financiación, innovación<br />
+              y tecnología para proyectos<br />
+              que <em>importan.</em>
+            </h1>
+            <p className="hero-desc">
+              Trabajamos con empresas, universidades, administraciones y
+              asociaciones empresariales en Europa, Latinoamérica y Oriente
+              Medio en proyectos de alto impacto. Subvenciones de gran volumen,
+              I+D+i, ingeniería de IA y transferencia tecnológica.
+            </p>
+            <div className="area-actions">
+              <button className="btn-primary" onClick={() => setSeccion("evalua")}>
+                EVALÚA TU PROYECTO →
+              </button>
+              <button className="btn-ghost" onClick={() => setSeccion("quehacemos")}>
+                CÓMO TRABAJAMOS
+              </button>
+            </div>
+            <div className="action-labels">
+              <span>Diagnóstico inicial gratuito y sin compromiso</span>
+              <span>Sin letra pequeña</span>
+            </div>
+          </section>
 
-          <div className="area-actions">
-            <button onClick={() => setSeccion("presenta")}>
+          <section className="stats-band">
+            <div className="stats-grid">
+              <div className="stat-item">
+                <span className="stat-number">+100K€</span>
+                <span className="stat-label">Financiación mínima que buscamos<br />para cada cliente</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">Nacional<br />+ EU</span>
+                <span className="stat-label">Ámbito de financiación</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">I+D+i</span>
+                <span className="stat-label">Especialización en innovación</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">IA</span>
+                <span className="stat-label">Ingeniería de alto rendimiento</span>
+              </div>
+            </div>
+          </section>
+
+          <section className="truth-band">
+            <div className="truth-box">
+              <p className="truth-title">Lo primero que hacemos es decirte la verdad.</p>
+              <p className="truth-body">
+                Antes de hablar de honorarios, analizamos tu proyecto y te decimos si tiene opciones
+                reales de financiación. Sin coste. Sin compromiso. Porque preferimos no trabajar
+                contigo a hacerte perder el tiempo.
+              </p>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* ── QUÉ HACEMOS ── */}
+      {seccion === "quehacemos" && (
+        <>
+          <section className="area-hero">
+            <p className="eyebrow">NUESTRA FORMA DE TRABAJAR</p>
+            <h1>
+              No gestionamos expedientes.<br />
+              Construimos proyectos que<br />
+              <em>consiguen financiación.</em>
+            </h1>
+            <p className="hero-desc">
+              Hay consultoras que presentan solicitudes. Nosotros diseñamos proyectos
+              sólidos, con narrativa técnica potente y viabilidad real — y luego los
+              presentamos. La diferencia está en la tasa de éxito, el retorno para la
+              entidad y la calidad en la ejecución.
+            </p>
+          </section>
+
+          <section className="why-section">
+            <p className="eyebrow">POR QUÉ NYP GLOBAL</p>
+            <div className="numbered-grid">
+              <article>
+                <span className="num">01</span>
+                <h3>Solo proyectos de envergadura</h3>
+                <p>Trabajamos en proyectos desde 100.000€. Nuestro foco es la complejidad y el volumen, no el volumen de expedientes.</p>
+              </article>
+              <article>
+                <span className="num">02</span>
+                <h3>Especialización en innovación y tecnología</h3>
+                <p>I+D+i, transformación digital, ingeniería de IA y transferencia tecnológica son nuestro núcleo duro.</p>
+              </article>
+              <article>
+                <span className="num">03</span>
+                <h3>Red de ecosistema</h3>
+                <p>Conectamos empresas, centros tecnológicos, universidades y administraciones para construir consorcios competitivos.</p>
+              </article>
+              <article>
+                <span className="num">04</span>
+                <h3>Diagnóstico previo honesto</h3>
+                <p>Antes de cualquier compromiso, te decimos si tu proyecto tiene opciones reales. Siempre.</p>
+              </article>
+            </div>
+          </section>
+
+          <section className="steps-section">
+            <p className="eyebrow">CÓMO TRABAJAMOS</p>
+            <div className="steps-list">
+              <div className="step-row">
+                <span className="step-num">01</span>
+                <div>
+                  <h3>Diagnóstico de elegibilidad</h3>
+                  <p>Analizamos tu proyecto, tu organización y el contexto de financiación disponible. Te decimos qué convocatorias encajan y con qué probabilidad real de éxito.</p>
+                </div>
+              </div>
+              <div className="step-row">
+                <span className="step-num">02</span>
+                <div>
+                  <h3>Diseño técnico del proyecto</h3>
+                  <p>Construimos la arquitectura del proyecto — objetivos, actividades, presupuesto, indicadores y narrativa técnica — para maximizar su competitividad.</p>
+                </div>
+              </div>
+              <div className="step-row">
+                <span className="step-num">03</span>
+                <div>
+                  <h3>Presentación y seguimiento</h3>
+                  <p>Gestionamos la presentación completa y el seguimiento ante el organismo financiador hasta la resolución.</p>
+                </div>
+              </div>
+              <div className="step-row">
+                <span className="step-num">04</span>
+                <div>
+                  <h3>Ejecución y justificación</h3>
+                  <p>Acompañamos la ejecución del proyecto aprobado y gestionamos su justificación técnica y económica completa.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* ── SERVICIOS ── */}
+      {seccion === "servicios" && (
+        <>
+          <section className="area-hero">
+            <p className="eyebrow">SERVICIOS</p>
+            <h1>
+              Alta especialización para<br />
+              proyectos de <em>alto impacto.</em>
+            </h1>
+            <p className="hero-desc">
+              Trabajamos en ámbitos donde la complejidad técnica y la exigencia
+              normativa requieren un partner con experiencia real, no conocimiento
+              genérico.
+            </p>
+          </section>
+
+          <section className="services-section">
+            <div className="services-grid">
+              <article>
+                <span className="tag">FINANCIACIÓN</span>
+                <h3>Subvenciones de gran volumen</h3>
+                <p>Identificación, diseño, presentación y justificación de proyectos subvencionados desde 100.000€. Convocatorias nacionales, europeas e internacionales.</p>
+              </article>
+              <article>
+                <span className="tag">INNOVACIÓN</span>
+                <h3>Proyectos de I+D+i</h3>
+                <p>Diseño y gestión de proyectos de investigación, desarrollo e innovación. Coordinación de consorcios y agrupaciones empresariales para convocatorias competitivas.</p>
+              </article>
+              <article>
+                <span className="tag">DIGITAL</span>
+                <h3>Transformación digital</h3>
+                <p>Consultoría y formación en digitalización para empresas, asociaciones empresariales y administraciones. Agentes de Transformación Digital certificados.</p>
+              </article>
+              <article>
+                <span className="tag">TRANSFERENCIA</span>
+                <h3>Transferencia tecnológica</h3>
+                <p>Conexión entre grupos de investigación, centros tecnológicos y empresas para la valorización y explotación de resultados de I+D+i.</p>
+              </article>
+              <article>
+                <span className="tag">FORMACIÓN</span>
+                <h3>Formación y mentoría</h3>
+                <p>Programas especializados en digitalización, innovación y gestión de proyectos. Mentoría estratégica para equipos y organizaciones en procesos de transformación.</p>
+              </article>
+              <article>
+                <span className="tag">EVENTOS</span>
+                <h3>Eventos B2B de innovación</h3>
+                <p>Organización de encuentros empresariales, misiones tecnológicas, jornadas de matchmaking y eventos de ecosistema innovador a nivel nacional e internacional.</p>
+              </article>
+              <article className="empty-cell" aria-hidden="true"></article>
+              <article className="empty-cell" aria-hidden="true"></article>
+            </div>
+          </section>
+
+          <section className="cta-band">
+            <div className="cta-box">
+              <p className="cta-title">¿No sabes si tu proyecto encaja?</p>
+              <p className="cta-body">
+                Cuéntanoslo. El diagnóstico inicial es gratuito y te damos una valoración honesta en
+                menos de 48 horas. Si no vemos opciones reales, te lo decimos sin rodeos.
+              </p>
+              <button className="btn-primary" onClick={() => setSeccion("evalua")}>
+                SOLICITAR DIAGNÓSTICO GRATUITO →
+              </button>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* ── INGENIERÍA DE IA ── */}
+      {seccion === "ia" && (
+        <>
+          <section className="ia-hero">
+            <div className="ia-hero-inner">
+              <p className="eyebrow eyebrow-light">NYP GLOBAL · INGENIERÍA DE IA</p>
+              <h1>
+                Ingeniería de Inteligencia<br />
+                Artificial Generativa<br />
+                de <em>alto rendimiento.</em>
+              </h1>
+              <p className="hero-desc hero-desc-light">
+                No implementamos herramientas de IA. Diseñamos arquitecturas
+                inteligentes, confiables y escalables que transforman la forma en que tu
+                organización opera, decide y crece.
+              </p>
+              <p className="hero-desc hero-desc-light">
+                Para empresas, administraciones y grupos de investigación que necesitan IA real —
+                no demos.
+              </p>
+            </div>
+          </section>
+
+          <section className="capacidades-section">
+            <p className="eyebrow">NUESTRAS CAPACIDADES</p>
+            <div className="capacidades-grid">
+              <article>
+                <h3>Arquitecturas de IA confiable</h3>
+                <p>Diseño e implementación de sistemas de IA robustos, auditables y alineados con los requisitos de gobernanza y cumplimiento normativo de tu organización.</p>
+              </article>
+              <article>
+                <h3>Datasets y entrenamiento privados</h3>
+                <p>Construcción de datasets propietarios y entrenamiento de modelos sobre datos privados de la organización. Máxima privacidad, máximo rendimiento.</p>
+              </article>
+              <article>
+                <h3>Sistemas multiagente autónomos</h3>
+                <p>Diseño y despliegue de arquitecturas multiagente capaces de ejecutar flujos de trabajo complejos de forma autónoma, coordinada y supervisada.</p>
+              </article>
+              <article>
+                <h3>Infraestructura de IA predictiva</h3>
+                <p>Infraestructura optimizada para modelos de alta demanda computacional. Rendimiento, escalabilidad y eficiencia en producción.</p>
+              </article>
+            </div>
+          </section>
+
+          <section className="ia-quote-section">
+            <blockquote>
+              La IA no es una herramienta que se instala.<br />
+              Es una capacidad que se construye.
+            </blockquote>
+            <p className="ia-quote-attr">NYP Global · Ingeniería de IA</p>
+          </section>
+
+          <section className="cta-band">
+            <div className="cta-box">
+              <p className="cta-title">¿Tienes un proyecto de IA que necesita arquitectura real?</p>
+              <p className="cta-body">
+                Muchas organizaciones invierten en IA sin una base técnica sólida. Nosotros diseñamos
+                desde la arquitectura — para que tu inversión escale, sea auditable y genere resultados
+                medibles.
+              </p>
+              <button className="btn-primary" onClick={() => setSeccion("evalua")}>
+                CUÉNTANOS TU PROYECTO →
+              </button>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* ── EXPERIENCIA ── */}
+      {seccion === "experiencia" && (
+        <>
+          <section className="area-hero">
+            <p className="eyebrow">EXPERIENCIA</p>
+            <h1>
+              Proyectos de alto impacto<br />
+              en los sectores que<br />
+              más <em>evolucionan.</em>
+            </h1>
+            <p className="hero-desc">
+              Hemos trabajado con empresas, universidades, grupos de investigación,
+              startups y administraciones en proyectos de innovación, digitalización y
+              financiación de gran escala.
+            </p>
+          </section>
+
+          <section className="sectores-section">
+            <p className="eyebrow">SECTORES DE EXPERIENCIA</p>
+            <div className="sectores-grid">
+              <article>
+                <h3>Tecnología e innovación</h3>
+                <p>I+D+i, startups tecnológicas, transferencia universidad-empresa y ecosistemas de innovación.</p>
+              </article>
+              <article>
+                <h3>Administración pública</h3>
+                <p>Asistencia técnica, digitalización de servicios públicos y gestión de fondos europeos para AAPP.</p>
+              </article>
+              <article>
+                <h3>Universidad e investigación</h3>
+                <p>Proyectos con grupos de investigación, spin-offs, valorización de resultados y programas Horizonte Europa.</p>
+              </article>
+              <article>
+                <h3>Asociaciones empresariales</h3>
+                <p>Proyectos de promoción empresarial, digitalización sectorial, internacionalización y acceso a financiación para colectivos de empresas.</p>
+              </article>
+            </div>
+          </section>
+
+          <section className="exp-cta-band">
+            <p className="exp-cta-text">¿Quieres conocer nuestra experiencia en tu sector? Cuéntanos tu proyecto y te lo explicamos en detalle.</p>
+            <button className="btn-primary" onClick={() => setSeccion("contacto")}>
+              HABLEMOS →
+            </button>
+          </section>
+        </>
+      )}
+
+      {/* ── EVALÚA TU PROYECTO ── */}
+      {seccion === "evalua" && (
+        <>
+          <section className="area-hero">
+            <p className="eyebrow">EVALÚA TU PROYECTO</p>
+            <h1>
+              Antes de comprometerte,<br />
+              saber si tiene opciones reales<br />
+              no debería <em>costarte nada.</em>
+            </h1>
+            <p className="hero-desc">
+              Cuéntanos tu proyecto. Analizamos su elegibilidad y te respondemos en
+              menos de 48 horas con una valoración honesta — sin coste y sin
+              compromiso.
+            </p>
+          </section>
+
+          <section className="form-section">
+            <form className="project-form" onSubmit={(e) => e.preventDefault()}>
+              <div className="form-field">
+                <label>ORGANIZACIÓN</label>
+                <input type="text" placeholder="Nombre de tu empresa, universidad o entidad" />
+              </div>
+
+              <div className="form-field">
+                <label>PERSONA DE CONTACTO</label>
+                <input type="text" placeholder="Nombre y apellidos" />
+              </div>
+
+              <div className="form-field">
+                <label>EMAIL</label>
+                <input type="email" placeholder="correo@organización.com" />
+              </div>
+
+              <div className="form-field">
+                <label>TELÉFONO <span className="optional">(opcional)</span></label>
+                <input type="tel" placeholder="Si prefieres que te llamemos" />
+              </div>
+
+              <div className="form-field">
+                <label>TIPO DE ORGANIZACIÓN</label>
+                <select>
+                  <option>Selecciona una opción</option>
+                  <option>Empresa</option>
+                  <option>Startup</option>
+                  <option>Universidad</option>
+                  <option>Centro tecnológico</option>
+                  <option>Administración pública</option>
+                  <option>Asociación empresarial</option>
+                  <option>Entidad social</option>
+                </select>
+              </div>
+
+              <div className="form-field">
+                <label>¿QUÉ NECESITAS?</label>
+                <select>
+                  <option>Selecciona una opción</option>
+                  <option>Captación de financiación</option>
+                  <option>Diseño y gestión de proyectos I+D+i</option>
+                  <option>Ingeniería de IA</option>
+                  <option>Transformación digital</option>
+                  <option>Transferencia tecnológica</option>
+                  <option>Formación o mentoría</option>
+                  <option>Organización de eventos</option>
+                </select>
+              </div>
+
+              <div className="form-field">
+                <label>VOLUMEN ESTIMADO DEL PROYECTO</label>
+                <select>
+                  <option>Selecciona una opción</option>
+                  <option>100.000€ – 250.000€</option>
+                  <option>250.000€ – 500.000€</option>
+                  <option>500.000€ – 1.000.000€</option>
+                  <option>Más de 1.000.000€</option>
+                  <option>No lo sé todavía</option>
+                </select>
+              </div>
+
+              <div className="form-field">
+                <label>DESCRIBE TU PROYECTO O NECESIDAD</label>
+                <textarea placeholder="Cuéntanos en qué consiste tu proyecto, en qué fase está y qué tipo de apoyo buscas." />
+              </div>
+
+              <div className="form-field">
+                <label>DOCUMENTACIÓN <span className="optional">(opcional)</span></label>
+                <div className="file-drop">
+                  <span className="file-icon">↑</span>
+                  <p>Arrastra aquí tus archivos o haz clic para seleccionarlos</p>
+                  <p className="file-hint">PDF, Word, Excel · Máximo 20 MB por archivo</p>
+                  <input type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx" />
+                </div>
+                <p className="file-note">Memorias técnicas, convocatorias de interés, planes de negocio o cualquier documento relevante.</p>
+              </div>
+
+              <div className="form-privacy">
+                <span className="privacy-dot" />
+                <p>Tus datos se tratan con total confidencialidad conforme al RGPD. Nunca los compartiremos con terceros.</p>
+              </div>
+
+              <button type="submit" className="btn-primary btn-full">
+                SOLICITAR DIAGNÓSTICO GRATUITO →
+              </button>
+            </form>
+          </section>
+        </>
+      )}
+
+      {/* ── CONTACTO ── */}
+      {seccion === "contacto" && (
+        <>
+          <section className="area-hero">
+            <p className="eyebrow">CONTACTO</p>
+            <h1>
+              Hablamos de tu proyecto.<br />
+              Sin rodeos<br />
+              y sin <em>compromiso.</em>
+            </h1>
+            <p className="hero-desc">
+              Trabajamos con organizaciones en Europa, Latinoamérica y Oriente Medio. Si
+              tienes un proyecto ambicioso y quieres saber si tiene recorrido, escríbenos.
+              La primera conversación es siempre gratuita.
+            </p>
+          </section>
+
+          <section className="contact-grid-section">
+            <div className="contact-grid">
+              <div className="contact-cell">
+                <span className="contact-label">EMAIL</span>
+                <a href="mailto:hola@nyphub.com" className="contact-value">hola@nyphub.com</a>
+              </div>
+              <div className="contact-cell">
+                <span className="contact-label">LINKEDIN</span>
+                <span className="contact-value">NYP Global</span>
+              </div>
+              <div className="contact-cell">
+                <span className="contact-label">RESPUESTA GARANTIZADA</span>
+                <span className="contact-value">Menos de 48 horas</span>
+              </div>
+              <div className="contact-cell">
+                <span className="contact-label">CONFIDENCIALIDAD</span>
+                <span className="contact-value">Total. Siempre.</span>
+              </div>
+            </div>
+          </section>
+
+          <section className="contact-quote-section">
+            <blockquote className="contact-quote">
+              "Preferimos decirte que no<br />
+              a hacerte perder el tiempo."
+            </blockquote>
+            <p className="contact-quote-attr">Honestidad antes que negocio. Siempre.</p>
+            <button className="btn-primary" onClick={() => setSeccion("evalua")}>
               EVALÚA TU PROYECTO →
             </button>
-            <button onClick={() => setSeccion("quehacemos")}>
-              CÓMO TRABAJAMOS
-            </button>
-          </div>
-        </section>
-      )}
-
-      {seccion === "quehacemos" && (
-        <section className="area-section">
-          <p className="eyebrow">NUESTRA FORMA DE TRABAJAR</p>
-          <h1>
-            No somos una consultora al uso. Somos tu equipo de{" "}
-            <em>proyectos.</em>
-          </h1>
-          <p>
-            Analizamos cada iniciativa, localizamos oportunidades de financiación
-            y acompañamos a la organización desde la idea inicial hasta la
-            justificación final.
-          </p>
-
-          <div className="area-grid">
-            <article>
-              <h3>Transparencia total</h3>
-              <p>Informamos del estado real de cada expediente y convocatoria.</p>
-            </article>
-            <article>
-              <h3>Honorarios alineados</h3>
-              <p>Trabajamos a éxito siempre que el proyecto lo permite.</p>
-            </article>
-            <article>
-              <h3>Acompañamiento completo</h3>
-              <p>Diseño, presentación, seguimiento y justificación final.</p>
-            </article>
-            <article>
-              <h3>Nacional e internacional</h3>
-              <p>Fondos europeos, programas nacionales y convocatorias globales.</p>
-            </article>
-          </div>
-        </section>
-      )}
-
-      {seccion === "servicios" && (
-        <section className="area-section">
-          <p className="eyebrow">SERVICIOS</p>
-          <h1>
-            Todo lo que necesita tu organización en un solo <em>equipo.</em>
-          </h1>
-          <p>
-            Cubrimos las principales fases del ciclo de vida de un proyecto:
-            financiación, diseño, gestión, ejecución y comunicación.
-          </p>
-
-          <div className="area-grid services-grid">
-            <article>
-              <span>FINANCIACIÓN</span>
-              <h3>Captación de fondos</h3>
-              <p>Fondos europeos, nacionales, autonómicos e internacionales.</p>
-            </article>
-            <article>
-              <span>DISEÑO</span>
-              <h3>Diseño de proyectos</h3>
-              <p>Memorias técnicas, objetivos, actividades e indicadores.</p>
-            </article>
-            <article>
-              <span>GESTIÓN</span>
-              <h3>Seguimiento técnico</h3>
-              <p>Control documental, hitos, informes y relación con organismos.</p>
-            </article>
-            <article>
-              <span>EJECUCIÓN</span>
-              <h3>Apoyo operativo</h3>
-              <p>Acompañamiento durante la ejecución y justificación.</p>
-            </article>
-            <article>
-              <span>IA</span>
-              <h3>Ingeniería de IA</h3>
-              <p>Soluciones digitales e inteligencia artificial aplicada.</p>
-            </article>
-            <article>
-              <span>ESTRATEGIA</span>
-              <h3>Consultoría estratégica</h3>
-              <p>Planes de innovación, digitalización y crecimiento.</p>
-            </article>
-          </div>
-        </section>
-      )}
-
-      {seccion === "proyectos" && (
-        <section className="area-section">
-          <p className="eyebrow">IMPACTO REAL</p>
-          <h1>
-            Proyectos que <em>transforman realidades.</em>
-          </h1>
-          <p>
-            Trabajamos en proyectos de innovación, digitalización,
-            sostenibilidad, cooperación internacional y desarrollo territorial.
-          </p>
-
-          <div className="area-grid">
-            <article>
-              <h3>Innovación empresarial</h3>
-              <p>Competitividad, transformación digital y nuevos modelos.</p>
-            </article>
-            <article>
-              <h3>I+D+i</h3>
-              <p>Investigación, desarrollo tecnológico y transferencia.</p>
-            </article>
-            <article>
-              <h3>Sostenibilidad</h3>
-              <p>Economía circular, transición ecológica y eficiencia energética.</p>
-            </article>
-            <article>
-              <h3>Cooperación internacional</h3>
-              <p>Programas europeos e iniciativas con impacto global.</p>
-            </article>
-          </div>
-
-          <div className="center-cta">
-            <p>¿Quieres que estudiemos tu caso?</p>
-            <button onClick={() => setSeccion("presenta")}>
-              CUÉNTANOS TU PROYECTO →
-            </button>
-          </div>
-        </section>
-      )}
-
-      {seccion === "mercantiles" && (
-        <section className="area-section">
-          <p className="eyebrow">MERCANTILES</p>
-          <h1>
-            Soluciones para empresas y entidades con actividad{" "}
-            <em>económica.</em>
-          </h1>
-          <p>
-            Acompañamos a sociedades mercantiles, startups, cooperativas,
-            centros tecnológicos y empresas vinculadas a entidades sociales.
-          </p>
-
-          <div className="area-grid">
-            <article>
-              <h3>Startups</h3>
-              <p>Financiación, innovación y crecimiento tecnológico.</p>
-            </article>
-            <article>
-              <h3>Empresas sociales</h3>
-              <p>Modelos sostenibles con impacto económico y social.</p>
-            </article>
-            <article>
-              <h3>Cooperativas</h3>
-              <p>Desarrollo territorial, empleo y economía social.</p>
-            </article>
-            <article>
-              <h3>Centros tecnológicos</h3>
-              <p>Transferencia de conocimiento y proyectos colaborativos.</p>
-            </article>
-          </div>
-        </section>
-      )}
-
-      {seccion === "financiacion" && (
-        <section className="area-section">
-          <p className="eyebrow">VIABILIDAD</p>
-          <h1>
-            ¿Hay financiación para tu <em>proyecto?</em>
-          </h1>
-          <p>
-            Analizamos la idea, el sector, el presupuesto y el grado de madurez
-            para identificar convocatorias y oportunidades reales.
-          </p>
-
-          <div className="area-grid">
-            <article>
-              <h3>Fondos europeos</h3>
-              <p>Programas de innovación, cooperación y transformación digital.</p>
-            </article>
-            <article>
-              <h3>Subvenciones nacionales</h3>
-              <p>Ayudas estatales para empresas, innovación e industria.</p>
-            </article>
-            <article>
-              <h3>Programas autonómicos</h3>
-              <p>Convocatorias regionales para desarrollo económico.</p>
-            </article>
-            <article>
-              <h3>Diagnóstico inicial</h3>
-              <p>Valoración previa para evitar pérdidas de tiempo.</p>
-            </article>
-          </div>
-        </section>
-      )}
-
-      {seccion === "presenta" && (
-        <section className="area-section form-section">
-          <p className="eyebrow">PRESENTA TU PROYECTO</p>
-          <h1>
-            Cuéntanos qué necesitas. Nosotros hacemos el <em>resto.</em>
-          </h1>
-          <p>
-            Rellena el formulario y te responderemos en un plazo máximo de 48
-            horas con una valoración inicial sin compromiso.
-          </p>
-
-          <form className="project-form">
-            <label>
-              Nombre de la entidad
-              <input type="text" placeholder="Nombre de tu organización" />
-            </label>
-
-            <label>
-              Persona de contacto
-              <input type="text" placeholder="Nombre y apellidos" />
-            </label>
-
-            <label>
-              Email
-              <input type="email" placeholder="correo@entidad.org" />
-            </label>
-
-            <label>
-              Teléfono
-              <input type="tel" placeholder="Teléfono de contacto" />
-            </label>
-
-            <label>
-              Tipo de entidad
-              <select>
-                <option>Selecciona una opción</option>
-                <option>Empresa</option>
-                <option>Startup</option>
-                <option>Universidad</option>
-                <option>Administración pública</option>
-                <option>Entidad social</option>
-              </select>
-            </label>
-
-            <label>
-              Describe tu situación o proyecto
-              <textarea placeholder="Cuéntanos qué tienes en mente, en qué fase estás y qué tipo de apoyo buscas." />
-            </label>
-
-            <label>
-              Documentación
-              <input type="file" />
-            </label>
-
-            <p className="privacy-note">
-              Tus datos se tratan con confidencialidad conforme al RGPD.
-            </p>
-
-            <button type="submit">ENVIAR SOLICITUD →</button>
-          </form>
-        </section>
-      )}
-
-      {seccion === "contacto" && (
-        <section className="area-section">
-          <p className="eyebrow">CONTACTO</p>
-          <h1>
-            Hablemos de tu próximo <em>proyecto.</em>
-          </h1>
-
-          <div className="area-grid">
-            <article>
-              <h3>Email</h3>
-              <p>hola@nyphub.com</p>
-            </article>
-            <article>
-              <h3>Soporte</h3>
-              <p>soporte@nyphub.com</p>
-            </article>
-            <article>
-              <h3>Ámbito</h3>
-              <p>Europa · Latinoamérica · Oriente Medio</p>
-            </article>
-          </div>
-
-          <Link to="/" className="back-link">
-            Volver al inicio
-          </Link>
-        </section>
+          </section>
+        </>
       )}
     </main>
   );
