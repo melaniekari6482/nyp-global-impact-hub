@@ -8,9 +8,8 @@
   box-sizing: border-box;
   background: #faf8f8;
   border-bottom: 1px solid #eee8e5;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   z-index: 1000;
 
   .navbar-logo img {

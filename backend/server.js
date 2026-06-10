@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const pool = require("./db");
 
 const app = express();
 
@@ -12,26 +13,42 @@ app.get("/", (req, res) => {
 
 app.get("/api/prueba", (req, res) => {
   res.json({
-    mensaje: "Hola desde Express"
+    mensaje: "Hola desde Express",
   });
 });
 
-// LOGIN
-app.post("/api/login", (req, res) => {
-  const { email, password } = req.body;
+// LOGIN CON POSTGRESQL
+app.post("/api/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-  if (email === "demo@demo.com" && password === "demo123") {
+    const resultado = await pool.query(
+      "SELECT * FROM usuarios WHERE email = $1 AND password = $2",
+      [email, password]
+    );
+
+    if (resultado.rows.length === 0) {
+      return res.status(401).json({
+        message: "Credenciales inválidas",
+      });
+    }
+
+    const usuario = resultado.rows[0];
+
     return res.json({
       token: "token-demo",
       usuario: {
-        email
-      }
+        id: usuario.id,
+        email: usuario.email,
+      },
+    });
+  } catch (error) {
+    console.error("Error login:", error);
+
+    return res.status(500).json({
+      message: "Error del servidor",
     });
   }
-
-  return res.status(401).json({
-    message: "Credenciales inválidas"
-  });
 });
 
 const PORT = 3000;
