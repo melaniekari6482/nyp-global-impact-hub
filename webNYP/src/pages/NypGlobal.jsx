@@ -1,18 +1,33 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import "../styles/nyp-global.scss";
+
+import img1 from "../assets/img1Nyp.jpg";
+import img2 from "../assets/img2Nyp.jpg";
+import img3 from "../assets/img3Nyp.jpg";
+import img4 from "../assets/img4Nyp.jpg";
+import img5 from "../assets/img5Nyp.jpg";
+import img6 from "../assets/img6Nyp.jpg";
+import img7 from "../assets/img7Nyp.jpg";
 
 export default function NypGlobal({ idioma }) {
   const [seccion, setSeccion] = useState("inicio");
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const s = searchParams.get("seccion");
+    if (s) setSeccion(s);
+  }, [searchParams]);
 
   const menu = [
-    { id: "inicio", label: "Inicio" },
-    { id: "quehacemos", label: "Qué hacemos" },
-    { id: "servicios", label: "Servicios" },
-    { id: "ia", label: "Ingeniería de IA" },
+    { id: "inicio",      label: "Inicio" },
+    { id: "quehacemos",  label: "Qué hacemos" },
+    { id: "servicios",   label: "Servicios" },
+    { id: "ia",          label: "Ingeniería de IA" },
     { id: "experiencia", label: "Experiencia" },
-    { id: "evalua", label: "Evalúa tu proyecto" },
-    { id: "contacto", label: "Contacto" },
+    { id: "evalua",      label: "Evalúa tu proyecto" },
+    { id: "contacto",    label: "Contacto" },
   ];
 
   return (
@@ -32,30 +47,28 @@ export default function NypGlobal({ idioma }) {
       {/* ── INICIO ── */}
       {seccion === "inicio" && (
         <>
-          <section className="area-hero">
-            <p className="eyebrow">NYP GLOBAL</p>
-            <h1>
-              Financiación, innovación<br />
-              y tecnología para proyectos<br />
-              que <em>importan.</em>
-            </h1>
-            <p className="hero-desc">
-              Trabajamos con empresas, universidades, administraciones y
-              asociaciones empresariales en Europa, Latinoamérica y Oriente
-              Medio en proyectos de alto impacto. Subvenciones de gran volumen,
-              I+D+i, ingeniería de IA y transferencia tecnológica.
-            </p>
-            <div className="area-actions">
-              <button className="btn-primary" onClick={() => setSeccion("evalua")}>
-                EVALÚA TU PROYECTO →
-              </button>
-              <button className="btn-ghost" onClick={() => setSeccion("quehacemos")}>
-                CÓMO TRABAJAMOS
-              </button>
-            </div>
-            <div className="action-labels">
-              <span>Diagnóstico inicial gratuito y sin compromiso</span>
-              <span>Sin letra pequeña</span>
+          <section className="page-hero-img" style={{ backgroundImage: `url(${img1})` }}>
+            <div className="page-hero-overlay">
+              <div className="page-hero-content">
+                <p className="eyebrow eyebrow-light">NYP GLOBAL</p>
+                <h1>
+                  Financiación, innovación<br />
+                  y tecnología para proyectos<br />
+                  que <em>importan.</em>
+                </h1>
+                <p className="hero-desc hero-desc-light">
+                  Trabajamos con empresas, universidades, administraciones y
+                  asociaciones en Europa, Latinoamérica y Oriente Medio.
+                </p>
+                <div className="area-actions" style={{ marginTop: "32px" }}>
+                  <button className="btn-primary" onClick={() => setSeccion("evalua")}>
+                    EVALÚA TU PROYECTO →
+                  </button>
+                  <button className="btn-ghost-light" onClick={() => setSeccion("quehacemos")}>
+                    CÓMO TRABAJAMOS
+                  </button>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -85,9 +98,25 @@ export default function NypGlobal({ idioma }) {
               <p className="truth-title">Lo primero que hacemos es decirte la verdad.</p>
               <p className="truth-body">
                 Antes de hablar de honorarios, analizamos tu proyecto y te decimos si tiene opciones
-                reales de financiación. Sin coste. Sin compromiso. Porque preferimos no trabajar
-                contigo a hacerte perder el tiempo.
+                reales de financiación. Sin coste. Sin compromiso.
               </p>
+            </div>
+          </section>
+
+          <section className="split-section">
+            <div className="split-img">
+              <img src={img3} alt="Innovación y tecnología" />
+            </div>
+            <div className="split-content">
+              <p className="eyebrow">NUESTRO ENFOQUE</p>
+              <h2>No gestionamos expedientes.<br />Construimos proyectos.</h2>
+              <p>
+                La diferencia entre presentar una solicitud y diseñar un proyecto competitivo
+                está en la tasa de éxito. Nosotros nos quedamos con la segunda opción.
+              </p>
+              <button className="btn-primary" onClick={() => setSeccion("quehacemos")}>
+                VER CÓMO TRABAJAMOS →
+              </button>
             </div>
           </section>
         </>
@@ -105,9 +134,7 @@ export default function NypGlobal({ idioma }) {
             </h1>
             <p className="hero-desc">
               Hay consultoras que presentan solicitudes. Nosotros diseñamos proyectos
-              sólidos, con narrativa técnica potente y viabilidad real — y luego los
-              presentamos. La diferencia está en la tasa de éxito, el retorno para la
-              entidad y la calidad en la ejecución.
+              sólidos, con narrativa técnica potente y viabilidad real.
             </p>
           </section>
 
@@ -117,11 +144,11 @@ export default function NypGlobal({ idioma }) {
               <article>
                 <span className="num">01</span>
                 <h3>Solo proyectos de envergadura</h3>
-                <p>Trabajamos en proyectos desde 100.000€. Nuestro foco es la complejidad y el volumen, no el volumen de expedientes.</p>
+                <p>Trabajamos en proyectos desde 100.000€. Nuestro foco es la complejidad y el volumen.</p>
               </article>
               <article>
                 <span className="num">02</span>
-                <h3>Especialización en innovación y tecnología</h3>
+                <h3>Especialización en innovación</h3>
                 <p>I+D+i, transformación digital, ingeniería de IA y transferencia tecnológica son nuestro núcleo duro.</p>
               </article>
               <article>
@@ -144,28 +171,28 @@ export default function NypGlobal({ idioma }) {
                 <span className="step-num">01</span>
                 <div>
                   <h3>Diagnóstico de elegibilidad</h3>
-                  <p>Analizamos tu proyecto, tu organización y el contexto de financiación disponible. Te decimos qué convocatorias encajan y con qué probabilidad real de éxito.</p>
+                  <p>Analizamos tu proyecto, tu organización y el contexto de financiación disponible.</p>
                 </div>
               </div>
               <div className="step-row">
                 <span className="step-num">02</span>
                 <div>
                   <h3>Diseño técnico del proyecto</h3>
-                  <p>Construimos la arquitectura del proyecto — objetivos, actividades, presupuesto, indicadores y narrativa técnica — para maximizar su competitividad.</p>
+                  <p>Construimos la arquitectura del proyecto para maximizar su competitividad.</p>
                 </div>
               </div>
               <div className="step-row">
                 <span className="step-num">03</span>
                 <div>
                   <h3>Presentación y seguimiento</h3>
-                  <p>Gestionamos la presentación completa y el seguimiento ante el organismo financiador hasta la resolución.</p>
+                  <p>Gestionamos la presentación completa y el seguimiento hasta la resolución.</p>
                 </div>
               </div>
               <div className="step-row">
                 <span className="step-num">04</span>
                 <div>
                   <h3>Ejecución y justificación</h3>
-                  <p>Acompañamos la ejecución del proyecto aprobado y gestionamos su justificación técnica y económica completa.</p>
+                  <p>Acompañamos la ejecución del proyecto aprobado y gestionamos su justificación completa.</p>
                 </div>
               </div>
             </div>
@@ -184,8 +211,7 @@ export default function NypGlobal({ idioma }) {
             </h1>
             <p className="hero-desc">
               Trabajamos en ámbitos donde la complejidad técnica y la exigencia
-              normativa requieren un partner con experiencia real, no conocimiento
-              genérico.
+              normativa requieren un partner con experiencia real.
             </p>
           </section>
 
@@ -194,32 +220,32 @@ export default function NypGlobal({ idioma }) {
               <article>
                 <span className="tag">FINANCIACIÓN</span>
                 <h3>Subvenciones de gran volumen</h3>
-                <p>Identificación, diseño, presentación y justificación de proyectos subvencionados desde 100.000€. Convocatorias nacionales, europeas e internacionales.</p>
+                <p>Identificación, diseño, presentación y justificación desde 100.000€. Nacionales, europeas e internacionales.</p>
               </article>
               <article>
                 <span className="tag">INNOVACIÓN</span>
                 <h3>Proyectos de I+D+i</h3>
-                <p>Diseño y gestión de proyectos de investigación, desarrollo e innovación. Coordinación de consorcios y agrupaciones empresariales para convocatorias competitivas.</p>
+                <p>Diseño y gestión de proyectos de investigación, desarrollo e innovación. Coordinación de consorcios.</p>
               </article>
               <article>
                 <span className="tag">DIGITAL</span>
                 <h3>Transformación digital</h3>
-                <p>Consultoría y formación en digitalización para empresas, asociaciones empresariales y administraciones. Agentes de Transformación Digital certificados.</p>
+                <p>Consultoría y formación en digitalización para empresas, asociaciones y administraciones.</p>
               </article>
               <article>
                 <span className="tag">TRANSFERENCIA</span>
                 <h3>Transferencia tecnológica</h3>
-                <p>Conexión entre grupos de investigación, centros tecnológicos y empresas para la valorización y explotación de resultados de I+D+i.</p>
+                <p>Conexión entre grupos de investigación, centros tecnológicos y empresas.</p>
               </article>
               <article>
                 <span className="tag">FORMACIÓN</span>
                 <h3>Formación y mentoría</h3>
-                <p>Programas especializados en digitalización, innovación y gestión de proyectos. Mentoría estratégica para equipos y organizaciones en procesos de transformación.</p>
+                <p>Programas especializados en digitalización, innovación y gestión de proyectos.</p>
               </article>
               <article>
                 <span className="tag">EVENTOS</span>
                 <h3>Eventos B2B de innovación</h3>
-                <p>Organización de encuentros empresariales, misiones tecnológicas, jornadas de matchmaking y eventos de ecosistema innovador a nivel nacional e internacional.</p>
+                <p>Organización de encuentros empresariales, misiones tecnológicas y jornadas de matchmaking.</p>
               </article>
               <article className="empty-cell" aria-hidden="true"></article>
               <article className="empty-cell" aria-hidden="true"></article>
@@ -230,8 +256,7 @@ export default function NypGlobal({ idioma }) {
             <div className="cta-box">
               <p className="cta-title">¿No sabes si tu proyecto encaja?</p>
               <p className="cta-body">
-                Cuéntanoslo. El diagnóstico inicial es gratuito y te damos una valoración honesta en
-                menos de 48 horas. Si no vemos opciones reales, te lo decimos sin rodeos.
+                El diagnóstico inicial es gratuito y te damos una valoración honesta en menos de 48 horas.
               </p>
               <button className="btn-primary" onClick={() => setSeccion("evalua")}>
                 SOLICITAR DIAGNÓSTICO GRATUITO →
@@ -254,12 +279,7 @@ export default function NypGlobal({ idioma }) {
               </h1>
               <p className="hero-desc hero-desc-light">
                 No implementamos herramientas de IA. Diseñamos arquitecturas
-                inteligentes, confiables y escalables que transforman la forma en que tu
-                organización opera, decide y crece.
-              </p>
-              <p className="hero-desc hero-desc-light">
-                Para empresas, administraciones y grupos de investigación que necesitan IA real —
-                no demos.
+                inteligentes, confiables y escalables.
               </p>
             </div>
           </section>
@@ -269,19 +289,19 @@ export default function NypGlobal({ idioma }) {
             <div className="capacidades-grid">
               <article>
                 <h3>Arquitecturas de IA confiable</h3>
-                <p>Diseño e implementación de sistemas de IA robustos, auditables y alineados con los requisitos de gobernanza y cumplimiento normativo de tu organización.</p>
+                <p>Diseño e implementación de sistemas robustos, auditables y alineados con los requisitos de gobernanza.</p>
               </article>
               <article>
                 <h3>Datasets y entrenamiento privados</h3>
-                <p>Construcción de datasets propietarios y entrenamiento de modelos sobre datos privados de la organización. Máxima privacidad, máximo rendimiento.</p>
+                <p>Construcción de datasets propietarios y entrenamiento de modelos sobre datos privados.</p>
               </article>
               <article>
                 <h3>Sistemas multiagente autónomos</h3>
-                <p>Diseño y despliegue de arquitecturas multiagente capaces de ejecutar flujos de trabajo complejos de forma autónoma, coordinada y supervisada.</p>
+                <p>Diseño y despliegue de arquitecturas multiagente para flujos de trabajo complejos.</p>
               </article>
               <article>
                 <h3>Infraestructura de IA predictiva</h3>
-                <p>Infraestructura optimizada para modelos de alta demanda computacional. Rendimiento, escalabilidad y eficiencia en producción.</p>
+                <p>Infraestructura optimizada para modelos de alta demanda computacional.</p>
               </article>
             </div>
           </section>
@@ -298,9 +318,7 @@ export default function NypGlobal({ idioma }) {
             <div className="cta-box">
               <p className="cta-title">¿Tienes un proyecto de IA que necesita arquitectura real?</p>
               <p className="cta-body">
-                Muchas organizaciones invierten en IA sin una base técnica sólida. Nosotros diseñamos
-                desde la arquitectura — para que tu inversión escale, sea auditable y genere resultados
-                medibles.
+                Diseñamos desde la arquitectura para que tu inversión escale y genere resultados medibles.
               </p>
               <button className="btn-primary" onClick={() => setSeccion("evalua")}>
                 CUÉNTANOS TU PROYECTO →
@@ -313,18 +331,21 @@ export default function NypGlobal({ idioma }) {
       {/* ── EXPERIENCIA ── */}
       {seccion === "experiencia" && (
         <>
-          <section className="area-hero">
-            <p className="eyebrow">EXPERIENCIA</p>
-            <h1>
-              Proyectos de alto impacto<br />
-              en los sectores que<br />
-              más <em>evolucionan.</em>
-            </h1>
-            <p className="hero-desc">
-              Hemos trabajado con empresas, universidades, grupos de investigación,
-              startups y administraciones en proyectos de innovación, digitalización y
-              financiación de gran escala.
-            </p>
+          <section className="page-hero-img" style={{ backgroundImage: `url(${img5})` }}>
+            <div className="page-hero-overlay">
+              <div className="page-hero-content">
+                <p className="eyebrow eyebrow-light">EXPERIENCIA</p>
+                <h1>
+                  Proyectos de alto impacto<br />
+                  en los sectores que<br />
+                  más <em>evolucionan.</em>
+                </h1>
+                <p className="hero-desc hero-desc-light">
+                  Hemos trabajado con empresas, universidades, grupos de investigación,
+                  startups y administraciones en proyectos de innovación de gran escala.
+                </p>
+              </div>
+            </div>
           </section>
 
           <section className="sectores-section">
@@ -336,21 +357,38 @@ export default function NypGlobal({ idioma }) {
               </article>
               <article>
                 <h3>Administración pública</h3>
-                <p>Asistencia técnica, digitalización de servicios públicos y gestión de fondos europeos para AAPP.</p>
+                <p>Asistencia técnica, digitalización de servicios públicos y gestión de fondos europeos.</p>
               </article>
               <article>
                 <h3>Universidad e investigación</h3>
-                <p>Proyectos con grupos de investigación, spin-offs, valorización de resultados y programas Horizonte Europa.</p>
+                <p>Proyectos con grupos de investigación, spin-offs, valorización de resultados y Horizonte Europa.</p>
               </article>
               <article>
                 <h3>Asociaciones empresariales</h3>
-                <p>Proyectos de promoción empresarial, digitalización sectorial, internacionalización y acceso a financiación para colectivos de empresas.</p>
+                <p>Proyectos de promoción empresarial, digitalización sectorial e internacionalización.</p>
               </article>
             </div>
           </section>
 
+          <section className="split-section split-reverse">
+            <div className="split-content">
+              <p className="eyebrow">NUESTRO ALCANCE</p>
+              <h2>Europa, Latinoamérica<br />y Oriente Medio.</h2>
+              <p>
+                Operamos en tres continentes con un modelo de trabajo remoto y presencial
+                que se adapta a cada cliente y convocatoria.
+              </p>
+              <button className="btn-primary" onClick={() => setSeccion("contacto")}>
+                HABLEMOS →
+              </button>
+            </div>
+            <div className="split-img">
+              <img src={img6} alt="Alcance internacional" />
+            </div>
+          </section>
+
           <section className="exp-cta-band">
-            <p className="exp-cta-text">¿Quieres conocer nuestra experiencia en tu sector? Cuéntanos tu proyecto y te lo explicamos en detalle.</p>
+            <p className="exp-cta-text">¿Quieres conocer nuestra experiencia en tu sector? Cuéntanos tu proyecto.</p>
             <button className="btn-primary" onClick={() => setSeccion("contacto")}>
               HABLEMOS →
             </button>
@@ -370,8 +408,7 @@ export default function NypGlobal({ idioma }) {
             </h1>
             <p className="hero-desc">
               Cuéntanos tu proyecto. Analizamos su elegibilidad y te respondemos en
-              menos de 48 horas con una valoración honesta — sin coste y sin
-              compromiso.
+              menos de 48 horas con una valoración honesta.
             </p>
           </section>
 
@@ -381,22 +418,18 @@ export default function NypGlobal({ idioma }) {
                 <label>ORGANIZACIÓN</label>
                 <input type="text" placeholder="Nombre de tu empresa, universidad o entidad" />
               </div>
-
               <div className="form-field">
                 <label>PERSONA DE CONTACTO</label>
                 <input type="text" placeholder="Nombre y apellidos" />
               </div>
-
               <div className="form-field">
                 <label>EMAIL</label>
                 <input type="email" placeholder="correo@organización.com" />
               </div>
-
               <div className="form-field">
                 <label>TELÉFONO <span className="optional">(opcional)</span></label>
                 <input type="tel" placeholder="Si prefieres que te llamemos" />
               </div>
-
               <div className="form-field">
                 <label>TIPO DE ORGANIZACIÓN</label>
                 <select>
@@ -410,7 +443,6 @@ export default function NypGlobal({ idioma }) {
                   <option>Entidad social</option>
                 </select>
               </div>
-
               <div className="form-field">
                 <label>¿QUÉ NECESITAS?</label>
                 <select>
@@ -424,7 +456,6 @@ export default function NypGlobal({ idioma }) {
                   <option>Organización de eventos</option>
                 </select>
               </div>
-
               <div className="form-field">
                 <label>VOLUMEN ESTIMADO DEL PROYECTO</label>
                 <select>
@@ -436,12 +467,10 @@ export default function NypGlobal({ idioma }) {
                   <option>No lo sé todavía</option>
                 </select>
               </div>
-
               <div className="form-field">
                 <label>DESCRIBE TU PROYECTO O NECESIDAD</label>
                 <textarea placeholder="Cuéntanos en qué consiste tu proyecto, en qué fase está y qué tipo de apoyo buscas." />
               </div>
-
               <div className="form-field">
                 <label>DOCUMENTACIÓN <span className="optional">(opcional)</span></label>
                 <div className="file-drop">
@@ -450,14 +479,11 @@ export default function NypGlobal({ idioma }) {
                   <p className="file-hint">PDF, Word, Excel · Máximo 20 MB por archivo</p>
                   <input type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx" />
                 </div>
-                <p className="file-note">Memorias técnicas, convocatorias de interés, planes de negocio o cualquier documento relevante.</p>
               </div>
-
               <div className="form-privacy">
                 <span className="privacy-dot" />
                 <p>Tus datos se tratan con total confidencialidad conforme al RGPD. Nunca los compartiremos con terceros.</p>
               </div>
-
               <button type="submit" className="btn-primary btn-full">
                 SOLICITAR DIAGNÓSTICO GRATUITO →
               </button>
@@ -477,8 +503,7 @@ export default function NypGlobal({ idioma }) {
               y sin <em>compromiso.</em>
             </h1>
             <p className="hero-desc">
-              Trabajamos con organizaciones en Europa, Latinoamérica y Oriente Medio. Si
-              tienes un proyecto ambicioso y quieres saber si tiene recorrido, escríbenos.
+              Trabajamos con organizaciones en Europa, Latinoamérica y Oriente Medio.
               La primera conversación es siempre gratuita.
             </p>
           </section>

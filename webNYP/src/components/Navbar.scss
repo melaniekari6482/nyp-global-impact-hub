@@ -6,14 +6,14 @@
   padding: 0 72px;
   width: 100%;
   box-sizing: border-box;
-  background: #faf8f8;
-  border-bottom: 1px solid #eee8e5;
+  background: #dee1e7;
+  border-bottom: 1px solid #f0efee;
   position: sticky;
   top: 0;
   z-index: 1000;
 
   .navbar-logo img {
-    height: 54px;
+    height: 120px;
     width: auto;
   }
 
@@ -64,13 +64,8 @@
     padding: 4px;
     letter-spacing: 0.08em;
 
-    &.active {
-      color: #0a0a0a;
-    }
-
-    &:hover {
-      color: #0a0a0a;
-    }
+    &.active { color: #0a0a0a; }
+    &:hover  { color: #0a0a0a; }
   }
 
   .btn-cta {
@@ -85,9 +80,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
 
-    &:hover {
-      background: #ebe7e4;
-    }
+    &:hover { background: #ebe7e4; }
   }
 
   .btn-contacto {
@@ -105,6 +98,101 @@
     &:hover {
       background: #0a0a0a;
       color: white;
+    }
+  }
+
+  .navbar-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #0a0a0a;
+      transition: all 0.3s ease;
+    }
+
+    &.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    &.open span:nth-child(2) { opacity: 0; }
+    &.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+// ── Media query FUERA del bloque .navbar ──
+@media (max-width: 1100px) {
+  .navbar {
+    padding: 0 24px;
+    position: relative;
+
+    .navbar-menu-toggle {
+      display: flex;
+    }
+
+    .navbar-links,
+    .navbar-right {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+
+      &.open {
+        display: flex;
+      }
+    }
+
+    .navbar-links {
+      position: absolute;
+      top: 92px;
+      left: 0;
+      right: 0;
+      background: #faf8f8;
+      border-bottom: 1px solid #eee8e5;
+      padding: 24px 24px 8px;
+      gap: 0;
+      margin-left: 0;
+      z-index: 999;
+
+      li {
+        width: 100%;
+        border-bottom: 1px solid #f0ece8;
+      }
+
+      a {
+        display: block;
+        padding: 16px 0;
+        font-size: 16px;
+      }
+    }
+
+    .navbar-right {
+      position: absolute;
+      left: 0;
+      right: 0;
+      background: #faf8f8;
+      padding: 16px 24px 24px;
+      gap: 16px;
+      margin-left: 0;
+      z-index: 998;
+
+      .lang-selector {
+        display: none;
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 1px solid #f0ece8;
+      }
+
+      .btn-cta,
+      .btn-contacto {
+        width: 100%;
+        text-align: center;
+        padding: 16px;
+      }
     }
   }
 }

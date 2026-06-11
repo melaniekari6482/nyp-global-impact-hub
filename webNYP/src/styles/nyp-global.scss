@@ -1,15 +1,19 @@
 // ─────────────────────────────────────────────
-// NYP GLOBAL – nyp-global.scss
+// NYP GLOBAL – nyp-global.scss  (paleta azul pizarra)
 // ─────────────────────────────────────────────
 
-$bg: #faf9f7;
-$ink: #111;
-$muted: #666;
-$border: #e5e1dc;
-$border-dark: #d8d2ca;
-$tag-bg: #f0ece6;
-$em-color: #9a9089;
-$black: #050505;
+$bg:           #f0f2f5;
+$bg-mid:       #e2e7ed;
+$bg-dark:      #1c2b3a;
+$bg-card:      #eaecf0;
+$white:        #f7f8fa;
+$ink:          #111820;
+$slate:        #4a6274;
+$slate-light:  #7a97aa;
+$border:       #c8d2db;
+$border-dark:  #a8b8c4;
+$em-color:     #7a97aa;
+$black:        #111820;
 
 // ── Base ────────────────────────────────────
 
@@ -28,14 +32,14 @@ $black: #050505;
   gap: 6px;
   padding: 18px 32px;
   border-bottom: 1px solid $border;
-  background: $bg;
+  background: $white;
   flex-wrap: wrap;
 
   button {
     padding: 10px 20px;
-    border: 1px solid $border-dark;
-    background: $bg;
-    color: #444;
+    border: 1px solid $border;
+    background: $white;
+    color: $slate;
     font-size: 13px;
     font-family: inherit;
     cursor: pointer;
@@ -48,9 +52,9 @@ $black: #050505;
     }
 
     &.active {
-      background: $black;
-      color: white;
-      border-color: $black;
+      background: $bg-dark;
+      color: $white;
+      border-color: $bg-dark;
       font-weight: 600;
     }
   }
@@ -69,6 +73,7 @@ $black: #050505;
     font-weight: 400;
     margin-bottom: 32px;
     letter-spacing: -0.01em;
+    color: $ink;
   }
 
   em {
@@ -81,7 +86,7 @@ $black: #050505;
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #aaa;
+  color: $slate-light;
   margin-bottom: 28px;
   font-family: 'Helvetica Neue', sans-serif;
 }
@@ -89,7 +94,7 @@ $black: #050505;
 .hero-desc {
   font-size: 17px;
   line-height: 1.85;
-  color: $muted;
+  color: $slate;
   max-width: 600px;
   margin-bottom: 0;
 }
@@ -105,9 +110,9 @@ $black: #050505;
 
 .btn-primary {
   padding: 15px 28px;
-  background: $black;
-  color: white;
-  border: 1px solid $black;
+  background: $bg-dark;
+  color: $white;
+  border: 1px solid $bg-dark;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -145,7 +150,7 @@ $black: #050505;
 
   span {
     font-size: 12px;
-    color: #aaa;
+    color: $slate-light;
     font-family: 'Helvetica Neue', sans-serif;
 
     &:last-child {
@@ -160,7 +165,7 @@ $black: #050505;
 .stats-band {
   border-top: 1px solid $border;
   border-bottom: 1px solid $border;
-  background: $bg;
+  background: $bg-mid;
 
   .stats-grid {
     max-width: 900px;
@@ -193,7 +198,7 @@ $black: #050505;
 
   .stat-label {
     font-size: 13px;
-    color: $muted;
+    color: $slate;
     line-height: 1.5;
     font-family: 'Helvetica Neue', sans-serif;
   }
@@ -208,8 +213,9 @@ $black: #050505;
   .truth-box {
     max-width: 620px;
     margin: 0 auto;
-    background: #f0ece6;
+    background: $bg-dark;
     padding: 48px 52px;
+    border-radius: 4px;
   }
 
   .truth-title {
@@ -217,13 +223,13 @@ $black: #050505;
     font-weight: 500;
     margin-bottom: 20px;
     line-height: 1.4;
-    color: $ink;
+    color: $white;
   }
 
   .truth-body {
     font-size: 15px;
     line-height: 1.8;
-    color: #555;
+    color: $slate-light;
     font-family: 'Helvetica Neue', sans-serif;
   }
 }
@@ -249,12 +255,12 @@ $black: #050505;
     padding: 32px 28px;
     border-right: 1px solid $border;
     border-bottom: 1px solid $border;
-    background: $bg;
+    background: $white;
 
     .num {
       display: block;
       font-size: 11px;
-      color: #bbb;
+      color: $slate-light;
       letter-spacing: 2px;
       margin-bottom: 20px;
       font-family: 'Helvetica Neue', sans-serif;
@@ -271,7 +277,7 @@ $black: #050505;
     p {
       font-size: 14px;
       line-height: 1.7;
-      color: $muted;
+      color: $slate;
       font-family: 'Helvetica Neue', sans-serif;
     }
   }
@@ -304,7 +310,7 @@ $black: #050505;
 
   .step-num {
     font-size: 11px;
-    color: #bbb;
+    color: $slate-light;
     letter-spacing: 2px;
     padding-top: 4px;
     font-family: 'Helvetica Neue', sans-serif;
@@ -320,7 +326,7 @@ $black: #050505;
   p {
     font-size: 15px;
     line-height: 1.75;
-    color: $muted;
+    color: $slate;
     font-family: 'Helvetica Neue', sans-serif;
   }
 }
@@ -343,18 +349,18 @@ $black: #050505;
     padding: 32px 28px;
     border-right: 1px solid $border;
     border-bottom: 1px solid $border;
-    background: $bg;
+    background: $white;
 
     &.empty-cell {
-      background: #f0ece6;
+      background: $bg-mid;
     }
 
     .tag {
       display: inline-block;
       font-size: 10px;
       letter-spacing: 2px;
-      color: #aaa;
-      border: 1px solid $border-dark;
+      color: $slate-light;
+      border: 1px solid $border;
       padding: 4px 10px;
       margin-bottom: 18px;
       font-family: 'Helvetica Neue', sans-serif;
@@ -371,7 +377,7 @@ $black: #050505;
     p {
       font-size: 14px;
       line-height: 1.7;
-      color: $muted;
+      color: $slate;
       font-family: 'Helvetica Neue', sans-serif;
     }
   }
@@ -381,27 +387,26 @@ $black: #050505;
 
 .cta-band {
   padding: 80px 32px;
-  background: $bg;
+  background: $bg-dark;
 
   .cta-box {
     max-width: 620px;
     margin: 0 auto;
-    background: #f0ece6;
-    padding: 48px 52px;
+    text-align: center;
   }
 
   .cta-title {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 16px;
-    color: $ink;
+    color: $white;
     line-height: 1.4;
   }
 
   .cta-body {
     font-size: 15px;
     line-height: 1.8;
-    color: #555;
+    color: $slate-light;
     font-family: 'Helvetica Neue', sans-serif;
     margin-bottom: 28px;
   }
@@ -410,7 +415,7 @@ $black: #050505;
 // ── IA hero ─────────────────────────────────
 
 .ia-hero {
-  background: #0d0d0d;
+  background: $bg-dark;
   padding: 0;
 
   .ia-hero-inner {
@@ -425,25 +430,23 @@ $black: #050505;
     font-weight: 400;
     margin-bottom: 32px;
     letter-spacing: -0.01em;
-    color: white;
+    color: $white;
   }
 
   em {
-    color: #c8bfb4;
+    color: $slate-light;
     font-style: italic;
   }
 }
 
 .eyebrow-light {
-  color: #666 !important;
+  color: $slate-light !important;
 }
 
 .hero-desc-light {
-  color: #888 !important;
+  color: $slate-light !important;
 
-  & + & {
-    margin-top: 16px;
-  }
+  & + & { margin-top: 16px; }
 }
 
 // ── Capacidades grid ────────────────────────
@@ -459,12 +462,13 @@ $black: #050505;
 .capacidades-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: #161616;
+  background: $bg-dark;
+  border: 1px solid rgba(255,255,255,0.06);
 
   article {
     padding: 36px 28px;
-    border-right: 1px solid #2a2a2a;
-    border-bottom: 1px solid #2a2a2a;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 
     &:nth-child(4n) { border-right: none; }
 
@@ -472,14 +476,14 @@ $black: #050505;
       font-size: 15px;
       font-weight: 600;
       margin-bottom: 14px;
-      color: #e8e4df;
+      color: $white;
       line-height: 1.35;
     }
 
     p {
       font-size: 13.5px;
       line-height: 1.7;
-      color: #888;
+      color: $slate-light;
       font-family: 'Helvetica Neue', sans-serif;
     }
   }
@@ -491,7 +495,7 @@ $black: #050505;
   max-width: 700px;
   margin: 0 auto;
   padding: 80px 32px;
-  border-left: 3px solid $border-dark;
+  border-left: 3px solid $border;
   margin-left: max(32px, calc(50% - 350px));
 
   blockquote {
@@ -505,7 +509,7 @@ $black: #050505;
 
   .ia-quote-attr {
     font-size: 12px;
-    color: #aaa;
+    color: $slate-light;
     letter-spacing: 1px;
     font-family: 'Helvetica Neue', sans-serif;
   }
@@ -531,7 +535,7 @@ $black: #050505;
     padding: 32px 28px;
     border-right: 1px solid $border;
     border-bottom: 1px solid $border;
-    background: $bg;
+    background: $white;
 
     h3 {
       font-size: 16px;
@@ -544,7 +548,7 @@ $black: #050505;
     p {
       font-size: 14px;
       line-height: 1.7;
-      color: $muted;
+      color: $slate;
       font-family: 'Helvetica Neue', sans-serif;
     }
   }
@@ -554,10 +558,11 @@ $black: #050505;
   text-align: center;
   padding: 80px 32px;
   border-top: 1px solid $border;
+  background: $bg-mid;
 
   .exp-cta-text {
     font-size: 15px;
-    color: $muted;
+    color: $slate;
     margin-bottom: 28px;
     font-family: 'Helvetica Neue', sans-serif;
   }
@@ -586,13 +591,13 @@ $black: #050505;
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #777;
+    color: $slate;
     font-family: 'Helvetica Neue', sans-serif;
   }
 
   .optional {
     font-size: 10px;
-    color: #bbb;
+    color: $slate-light;
     text-transform: none;
     letter-spacing: 0;
   }
@@ -602,7 +607,7 @@ $black: #050505;
   textarea {
     padding: 14px 16px;
     border: 1px solid $border;
-    background: white;
+    background: $white;
     font-size: 15px;
     font-family: 'Helvetica Neue', sans-serif;
     color: $ink;
@@ -612,13 +617,12 @@ $black: #050505;
     appearance: none;
     -webkit-appearance: none;
 
-    &:focus { border-color: #aaa; }
-
-    &::placeholder { color: #bbb; }
+    &:focus { border-color: $slate; }
+    &::placeholder { color: $slate-light; }
   }
 
   select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a97aa' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 16px center;
     padding-right: 40px;
@@ -637,26 +641,26 @@ $black: #050505;
   padding: 40px 24px;
   text-align: center;
   cursor: pointer;
-  background: white;
+  background: $white;
   position: relative;
 
   .file-icon {
     display: block;
     font-size: 22px;
-    color: #bbb;
+    color: $slate-light;
     margin-bottom: 12px;
   }
 
   p {
     font-size: 14px;
-    color: $muted;
+    color: $slate;
     font-family: 'Helvetica Neue', sans-serif;
     margin: 0;
   }
 
   .file-hint {
     font-size: 12px;
-    color: #bbb;
+    color: $slate-light;
     margin-top: 6px;
   }
 
@@ -672,7 +676,7 @@ $black: #050505;
 
 .file-note {
   font-size: 12px;
-  color: #aaa;
+  color: $slate-light;
   font-family: 'Helvetica Neue', sans-serif;
   margin-top: 4px;
 }
@@ -693,7 +697,7 @@ $black: #050505;
 
   p {
     font-size: 13px;
-    color: $muted;
+    color: $slate;
     line-height: 1.6;
     font-family: 'Helvetica Neue', sans-serif;
     margin: 0;
@@ -718,7 +722,7 @@ $black: #050505;
     padding: 32px 28px;
     border-right: 1px solid $border;
     border-bottom: 1px solid $border;
-    background: $bg;
+    background: $white;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -727,7 +731,7 @@ $black: #050505;
   .contact-label {
     font-size: 10px;
     letter-spacing: 2px;
-    color: #aaa;
+    color: $slate-light;
     font-family: 'Helvetica Neue', sans-serif;
     text-transform: uppercase;
   }
@@ -759,7 +763,7 @@ $black: #050505;
 
   .contact-quote-attr {
     font-size: 12px;
-    color: #aaa;
+    color: $slate-light;
     letter-spacing: 1px;
     font-family: 'Helvetica Neue', sans-serif;
     margin-bottom: 36px;
@@ -802,17 +806,10 @@ $black: #050505;
     padding-right: 20px;
   }
 
-  .truth-band .truth-box,
-  .cta-band .cta-box {
-    padding: 36px 28px;
-  }
-
+  .truth-band .truth-box { padding: 36px 28px; }
+  .cta-band { padding: 60px 20px; }
   .ia-hero .ia-hero-inner { padding: 80px 20px 60px; }
-
-  .ia-quote-section {
-    margin-left: 20px;
-    padding-left: 24px;
-  }
+  .ia-quote-section { margin-left: 20px; padding-left: 24px; }
 }
 
 @media (max-width: 560px) {
@@ -832,4 +829,157 @@ $black: #050505;
     padding-bottom: 28px;
     border-bottom: 1px solid $border;
   }
+}
+
+// ── Hero con imagen de fondo ─────────────────
+
+.page-hero-img {
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 24, 32, 0.75) 0%,
+    rgba(28, 43, 58, 0.45) 100%
+  );
+  display: flex;
+  align-items: center;
+}
+
+.page-hero-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+
+  h1 {
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.07;
+    font-weight: 400;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+    color: white;
+  }
+
+  em {
+    color: #a8c4d4;
+    font-style: italic;
+  }
+}
+
+.btn-ghost-light {
+  padding: 15px 28px;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.55);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', sans-serif;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(255,255,255,0.15);
+  }
+}
+
+// ── Split section ────────────────────────────
+
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 460px;
+
+  &.split-reverse {
+    direction: rtl;
+    > * { direction: ltr; }
+  }
+}
+
+.split-img {
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.03);
+  }
+}
+
+.split-content {
+  background: $bg-dark;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  .eyebrow { color: $slate-light; }
+
+  h2 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: white;
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: $slate-light;
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+  }
+}
+
+// ── Responsive nuevos componentes ────────────
+
+@media (max-width: 900px) {
+  .page-hero-img {
+    height: 420px;
+  }
+
+  .page-hero-content {
+    padding: 0 24px;
+
+    h1 { font-size: clamp(28px, 6vw, 46px); }
+  }
+
+  .split-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+
+    &.split-reverse { direction: ltr; }
+  }
+
+  .split-img {
+    height: 280px;
+  }
+
+  .split-content {
+    padding: 48px 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-hero-img { height: 320px; }
+  .split-img     { height: 220px; }
 }
